@@ -1,0 +1,6 @@
+2021/04/27-17:19:00.752 2c4f Creating DB /home/adrian/.config/chromium/Default/IndexedDB/https_www.dazn.com_0.indexeddb.leveldb since it was missing.
+2021/04/27-17:19:00.762 2c4f Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_www.dazn.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/04/27-17:19:14.124 2dbf Level-0 table #5: started
+2021/04/27-17:19:14.128 2dbf Level-0 table #5: 1233 bytes OK
+2021/04/27-17:19:14.134 2dbf Delete type=0 #3
+2021/04/27-17:19:14.134 2dbf Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,6 @@
+2021/11/16-11:50:39.789 86c0 Creating DB /home/adrian/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb since it was missing.
+2021/11/16-11:50:39.799 86c0 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/11/16-11:51:42.302 8c85 Level-0 table #5: started
+2021/11/16-11:51:42.309 8c85 Level-0 table #5: 150863 bytes OK
+2021/11/16-11:51:42.316 8c85 Delete type=0 #3
+2021/11/16-11:51:42.316 8c85 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

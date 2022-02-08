@@ -1,0 +1,26 @@
+local function map(mode, lhs, rhs, opts)
+  local options = {noremap = true}
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+-- Nvim
+map('i', 'ii', '<Esc>')                     -- ii insert to espcape
+map('n', '<leader>bw', ':w && :bw!<CR>')
+
+-- NvimTree
+map('n', '<C-n>', ':NvimTreeToggle<CR>')    -- Clear highlights
+
+-- ToggleTerm
+map('n', '<C-t>', ':ToggleTerm<CR>')    -- Open new terminal
+map('t', '<C-t>', '<Esc> && :q')    -- Closes the terminal
+
+-- Tabline
+map('n', '<Tab>', ':TablineBufferNext<CR>')    -- Next buffer
+map('n', '<S-Tab>', ':TablineBufferPrevious<CR>')    -- Previous buffer
+
+-- Telescope
+map('n', 'ff', ':Telescope find_files<CR>')
+map('n', 'fg', ':Telescope live_grep<CR>')
+map('n', 'fb', ':Telescope buffers<CR>')
+map('n', 'fh', ':Telescope help_tags<CR>')

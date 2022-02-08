@@ -1,0 +1,7 @@
+2021/11/17-14:13:50.931 87128 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_monkeytype.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/11/17-14:13:50.931 87128 Recovering log #6
+2021/11/17-14:13:50.931 87128 Reusing old log /home/adrian/.config/chromium/Default/IndexedDB/https_monkeytype.com_0.indexeddb.leveldb/000006.log 
+2021/11/17-14:13:51.182 87128 Level-0 table #11: started
+2021/11/17-14:13:51.191 87128 Level-0 table #11: 586 bytes OK
+2021/11/17-14:13:51.219 87128 Delete type=0 #6
+2021/11/17-14:13:51.219 93b0f Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)

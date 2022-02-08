@@ -1,0 +1,35 @@
+2022/01/10-14:14:30.166 7d08 Reusing MANIFEST /home/adrian/.config/chromium/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
+2022/01/10-14:14:30.167 7d08 Recovering log #3951
+2022/01/10-14:14:30.167 7d08 Reusing old log /home/adrian/.config/chromium/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/003951.log 
+2022/01/10-14:15:32.135 7d06 Level-0 table #3957: started
+2022/01/10-14:15:32.204 7d06 Level-0 table #3957: 6945541 bytes OK
+2022/01/10-14:15:32.210 7d06 Delete type=0 #3951
+2022/01/10-14:15:32.972 7d06 Level-0 table #3959: started
+2022/01/10-14:15:33.037 7d06 Level-0 table #3959: 6946960 bytes OK
+2022/01/10-14:15:33.044 7d06 Delete type=0 #3956
+2022/01/10-14:16:08.749 7d3a Level-0 table #3961: started
+2022/01/10-14:16:08.821 7d3a Level-0 table #3961: 6962059 bytes OK
+2022/01/10-14:16:08.827 7d3a Delete type=0 #3958
+2022/01/10-15:15:32.184 cbe6 Level-0 table #3963: started
+2022/01/10-15:15:32.253 cbe6 Level-0 table #3963: 6962833 bytes OK
+2022/01/10-15:15:32.267 cbe6 Delete type=0 #3960
+2022/01/10-15:15:32.269 cbe6 Compacting 4@0 + 2@1 files
+2022/01/10-15:15:32.386 cbe6 Generated table #3964@0: 2 keys, 6962131 bytes
+2022/01/10-15:15:32.396 cbe6 Generated table #3965@0: 8 keys, 456 bytes
+2022/01/10-15:15:32.396 cbe6 Compacted 4@0 + 2@1 files => 6962587 bytes
+2022/01/10-15:15:32.409 cbe6 compacted to: files[ 0 2 1 0 0 0 0 ]
+2022/01/10-15:15:32.409 cbe6 Delete type=2 #3953
+2022/01/10-15:15:32.409 cbe6 Delete type=2 #3959
+2022/01/10-15:15:32.409 cbe6 Delete type=2 #3961
+2022/01/10-15:15:32.409 cbe6 Delete type=2 #3963
+2022/01/10-15:15:32.409 cbe6 Delete type=2 #3957
+2022/01/10-15:15:32.409 cbe6 Delete type=2 #3954
+2022/01/10-15:16:22.273 c5e2 Level-0 table #3967: started
+2022/01/10-15:16:22.340 c5e2 Level-0 table #3967: 6962073 bytes OK
+2022/01/10-15:16:22.346 c5e2 Delete type=0 #3962
+2022/01/10-16:15:32.245 116b6 Level-0 table #3969: started
+2022/01/10-16:15:32.315 116b6 Level-0 table #3969: 6963063 bytes OK
+2022/01/10-16:15:32.324 116b6 Delete type=0 #3966
+2022/01/10-16:16:38.390 1051f Level-0 table #3971: started
+2022/01/10-16:16:38.569 1051f Level-0 table #3971: 6962067 bytes OK
+2022/01/10-16:16:38.584 1051f Delete type=0 #3968

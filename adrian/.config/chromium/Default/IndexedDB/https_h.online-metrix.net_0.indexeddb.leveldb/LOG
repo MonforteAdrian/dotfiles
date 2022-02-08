@@ -1,0 +1,8 @@
+2021/04/27-17:19:45.298 2b45 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_h.online-metrix.net_0.indexeddb.leveldb/MANIFEST-000001
+2021/04/27-17:19:45.298 2b45 Recovering log #4
+2021/04/27-17:19:45.298 2b45 Reusing old log /home/adrian/.config/chromium/Default/IndexedDB/https_h.online-metrix.net_0.indexeddb.leveldb/000004.log 
+2021/04/27-17:19:57.684 2e60 Level-0 table #8: started
+2021/04/27-17:19:57.684 2e60 Level-0 table #8: 0 bytes OK
+2021/04/27-17:19:57.690 2e60 Delete type=0 #4
+2021/04/27-17:19:57.690 2e60 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2021/04/27-17:19:57.690 2e60 Manual compaction at level-1 from (begin) .. (end); will stop at (end)

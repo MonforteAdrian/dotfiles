@@ -1,0 +1,6 @@
+2021/07/12-10:19:19.598 479c5 Creating DB /home/adrian/.config/chromium/Default/IndexedDB/https_www.elmundo.es_0.indexeddb.leveldb since it was missing.
+2021/07/12-10:19:19.736 479c5 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_www.elmundo.es_0.indexeddb.leveldb/MANIFEST-000001
+2021/07/12-10:19:26.249 479af Level-0 table #5: started
+2021/07/12-10:19:26.253 479af Level-0 table #5: 827 bytes OK
+2021/07/12-10:19:26.259 479af Delete type=0 #3
+2021/07/12-10:19:26.260 479af Manual compaction at level-0 from (begin) .. (end); will stop at (end)

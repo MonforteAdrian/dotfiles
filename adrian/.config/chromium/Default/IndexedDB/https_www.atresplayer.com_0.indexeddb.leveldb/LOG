@@ -1,0 +1,5 @@
+2021/02/27-11:39:52.101 3a79 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_www.atresplayer.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/02/27-11:40:01.887 3a24 Level-0 table #5: started
+2021/02/27-11:40:01.891 3a24 Level-0 table #5: 369 bytes OK
+2021/02/27-11:40:01.899 3a24 Delete type=0 #3
+2021/02/27-11:40:01.899 3a24 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

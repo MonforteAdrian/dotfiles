@@ -1,0 +1,16 @@
+{
+   "app": {
+      "launch": {
+         "web_url": "https://tiltshiftmaker.com/"
+      }
+   },
+   "description": "Transform your photos into tilt-shift style miniatures",
+   "icons": {
+      "128": "bgicon6a-128x128.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/P/v+3JRt4y9Ys5BrJ1EHX0k/h5Y64kKqjqnN97ZAc+8vBkNygqhvdzc7PW57rLUxj5znHaAe+TBxuA/dIizJnjVNBlAvZFKlKwV2dyedA9e8WaWgQgm1ybF+9LhyIOWAvBZsczkW7Ku4Bz3v3PebxgnXp1MJomcgu1GAiujmJQIDAQAB",
+   "manifest_version": 2,
+   "name": "TiltShiftMaker",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.0.1"
+}

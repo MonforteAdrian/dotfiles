@@ -1,0 +1,41 @@
+2022/02/08-13:39:12.768 4e1e Reusing MANIFEST /home/adrian/.config/chromium/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
+2022/02/08-13:39:12.769 4e1e Recovering log #3970
+2022/02/08-13:39:12.769 4e1e Reusing old log /home/adrian/.config/chromium/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/003970.log 
+2022/02/08-13:40:20.159 4c34 Level-0 table #3974: started
+2022/02/08-13:40:20.174 4e64 Current memtable full; waiting...
+2022/02/08-13:40:20.222 4c34 Level-0 table #3974: 6962527 bytes OK
+2022/02/08-13:40:20.229 4c34 Delete type=0 #3970
+2022/02/08-13:40:20.232 4c34 Compacting 4@0 + 2@1 files
+2022/02/08-13:40:20.258 4c34 Level-0 table #3976: started
+2022/02/08-13:40:20.323 4c34 Level-0 table #3976: 6961896 bytes OK
+2022/02/08-13:40:20.329 4c34 Delete type=0 #3973
+2022/02/08-13:40:20.391 4c34 Generated table #3977@0: 2 keys, 6962157 bytes
+2022/02/08-13:40:20.395 4c34 Generated table #3978@0: 8 keys, 458 bytes
+2022/02/08-13:40:20.395 4c34 Compacted 4@0 + 2@1 files => 6962615 bytes
+2022/02/08-13:40:20.400 4c34 compacted to: files[ 1 2 1 0 0 0 0 ]
+2022/02/08-13:40:20.400 4c34 Delete type=2 #3967
+2022/02/08-13:40:20.400 4c34 Delete type=2 #3969
+2022/02/08-13:40:20.400 4c34 Delete type=2 #3974
+2022/02/08-13:40:20.400 4c34 Delete type=2 #3971
+2022/02/08-13:40:20.400 4c34 Delete type=2 #3964
+2022/02/08-13:40:20.400 4c34 Delete type=2 #3965
+2022/02/08-13:40:23.280 4c34 Level-0 table #3980: started
+2022/02/08-13:40:23.351 4c34 Level-0 table #3980: 6956173 bytes OK
+2022/02/08-13:40:23.357 4c34 Delete type=0 #3975
+2022/02/08-13:40:24.906 4e64 Level-0 table #3982: started
+2022/02/08-13:40:24.967 4e64 Level-0 table #3982: 7361251 bytes OK
+2022/02/08-13:40:24.974 4e64 Delete type=0 #3979
+2022/02/08-13:58:43.236 4e63 Level-0 table #3984: started
+2022/02/08-13:58:43.311 4e63 Level-0 table #3984: 7361053 bytes OK
+2022/02/08-13:58:43.316 4e63 Delete type=0 #3981
+2022/02/08-13:58:43.318 4e63 Compacting 4@0 + 2@1 files
+2022/02/08-13:58:43.446 4e63 Generated table #3985@0: 2 keys, 7361144 bytes
+2022/02/08-13:58:43.451 4e63 Generated table #3986@0: 8 keys, 458 bytes
+2022/02/08-13:58:43.451 4e63 Compacted 4@0 + 2@1 files => 7361602 bytes
+2022/02/08-13:58:43.456 4e63 compacted to: files[ 0 2 1 0 0 0 0 ]
+2022/02/08-13:58:43.456 4e63 Delete type=2 #3980
+2022/02/08-13:58:43.456 4e63 Delete type=2 #3976
+2022/02/08-13:58:43.456 4e63 Delete type=2 #3977
+2022/02/08-13:58:43.456 4e63 Delete type=2 #3982
+2022/02/08-13:58:43.456 4e63 Delete type=2 #3984
+2022/02/08-13:58:43.456 4e63 Delete type=2 #3978

@@ -1,0 +1,15 @@
+2022/01/10-16:00:04.686 e929 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/01/10-16:00:04.686 e929 Recovering log #58
+2022/01/10-16:00:04.688 e929 Reusing old log /home/adrian/.config/chromium/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/000058.log 
+2022/01/10-16:02:09.009 1059a Level-0 table #63: started
+2022/01/10-16:02:09.026 1059a Level-0 table #63: 1667223 bytes OK
+2022/01/10-16:02:09.034 1059a Delete type=0 #58
+2022/01/10-16:02:09.036 1059a Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2022/01/10-16:02:09.036 1059a Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x02\x01\x1c\x00S\x00t\x00o\x00r\x00e\x00d\x00C\x00a\x00c\x00h\x00e\x00S\x00t\x00a\x00t\x00e\x00:\x00:\x00/\x00m\x00a\x00i\x00l\x00/\x00u\x00/\x000\x00/' @ 25961 : 1
+2022/01/10-16:02:09.036 1059a Compacting 1@1 + 1@2 files
+2022/01/10-16:02:09.055 1059a Generated table #64@1: 83 keys, 72536 bytes
+2022/01/10-16:02:09.055 1059a Compacted 1@1 + 1@2 files => 72536 bytes
+2022/01/10-16:02:09.061 1059a compacted to: files[ 0 0 1 0 0 0 0 ]
+2022/01/10-16:02:09.061 1059a Delete type=2 #60
+2022/01/10-16:02:09.061 1059a Delete type=2 #63
+2022/01/10-16:02:09.063 1059a Manual compaction at level-1 from '\x00\x01\x01\x02\x01\x1c\x00S\x00t\x00o\x00r\x00e\x00d\x00C\x00a\x00c\x00h\x00e\x00S\x00t\x00a\x00t\x00e\x00:\x00:\x00/\x00m\x00a\x00i\x00l\x00/\x00u\x00/\x000\x00/' @ 25961 : 1 .. (end); will stop at (end)

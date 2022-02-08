@@ -1,0 +1,6 @@
+2021/07/30-18:54:07.803 cfce Creating DB /home/adrian/.config/chromium/Default/IndexedDB/https_neovim.discourse.group_0.indexeddb.leveldb since it was missing.
+2021/07/30-18:54:07.814 cfce Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_neovim.discourse.group_0.indexeddb.leveldb/MANIFEST-000001
+2021/07/30-18:56:37.586 d0c0 Level-0 table #5: started
+2021/07/30-18:56:37.591 d0c0 Level-0 table #5: 6122 bytes OK
+2021/07/30-18:56:37.597 d0c0 Delete type=0 #3
+2021/07/30-18:56:37.597 d0c0 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

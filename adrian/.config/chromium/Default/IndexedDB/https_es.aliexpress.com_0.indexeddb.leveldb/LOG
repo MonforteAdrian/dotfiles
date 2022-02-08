@@ -1,0 +1,5 @@
+2021/02/21-12:03:46.837 4385 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_es.aliexpress.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/02/21-12:03:53.255 379e Level-0 table #5: started
+2021/02/21-12:03:53.258 379e Level-0 table #5: 2349 bytes OK
+2021/02/21-12:03:53.265 379e Delete type=0 #3
+2021/02/21-12:03:53.265 379e Manual compaction at level-0 from (begin) .. (end); will stop at (end)

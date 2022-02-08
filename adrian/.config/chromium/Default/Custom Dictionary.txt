@@ -1,0 +1,9 @@
+Miguel
+colacao
+decathlon
+deolveria
+motorland
+renfe
+trabajillo
+xd
+checksum_v1 = 3c784092fb47191caf802f5c72b3acf7

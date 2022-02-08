@@ -1,0 +1,5 @@
+2021/02/25-12:10:22.433 5c2b Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_texlab.netlify.app_0.indexeddb.leveldb/MANIFEST-000001
+2021/02/25-12:10:58.592 593b Level-0 table #5: started
+2021/02/25-12:10:58.707 593b Level-0 table #5: 1343 bytes OK
+2021/02/25-12:10:58.721 593b Delete type=0 #3
+2021/02/25-12:10:58.721 593b Manual compaction at level-0 from (begin) .. (end); will stop at (end)

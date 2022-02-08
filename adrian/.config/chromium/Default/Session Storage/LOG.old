@@ -1,0 +1,30 @@
+2022/01/10-14:14:29.989 3 Reusing MANIFEST /home/adrian/.config/chromium/Default/Session Storage/MANIFEST-000001
+2022/01/10-14:14:29.989 3 Recovering log #402
+2022/01/10-14:14:29.990 3 Reusing old log /home/adrian/.config/chromium/Default/Session Storage/000402.log 
+2022/01/10-15:11:52.117 2a Level-0 table #407: started
+2022/01/10-15:11:52.128 2a Level-0 table #407: 24183 bytes OK
+2022/01/10-15:11:52.143 2a Delete type=0 #402
+2022/01/10-15:16:14.632 2a Level-0 table #409: started
+2022/01/10-15:16:14.637 2a Level-0 table #409: 10876 bytes OK
+2022/01/10-15:16:14.643 2a Delete type=0 #406
+2022/01/10-15:38:42.915 33 Level-0 table #411: started
+2022/01/10-15:38:43.036 33 Level-0 table #411: 17575 bytes OK
+2022/01/10-15:38:43.055 33 Delete type=0 #408
+2022/01/10-15:41:12.741 38 Level-0 table #413: started
+2022/01/10-15:41:12.747 38 Level-0 table #413: 105270 bytes OK
+2022/01/10-15:41:12.754 38 Delete type=0 #410
+2022/01/10-15:41:12.754 38 Compacting 4@0 + 1@1 files
+2022/01/10-15:41:12.769 38 Generated table #414@0: 15337 keys, 412393 bytes
+2022/01/10-15:41:12.769 38 Compacted 4@0 + 1@1 files => 412393 bytes
+2022/01/10-15:41:12.774 38 compacted to: files[ 0 1 1 0 0 0 0 ]
+2022/01/10-15:41:12.775 38 Delete type=2 #407
+2022/01/10-15:41:12.775 38 Delete type=2 #411
+2022/01/10-15:41:12.775 38 Delete type=2 #404
+2022/01/10-15:41:12.775 38 Delete type=2 #409
+2022/01/10-15:41:12.775 38 Delete type=2 #413
+2022/01/10-15:41:22.109 33 Level-0 table #416: started
+2022/01/10-15:41:22.115 33 Level-0 table #416: 146469 bytes OK
+2022/01/10-15:41:22.121 33 Delete type=0 #412
+2022/01/10-16:37:40.486 4f Level-0 table #418: started
+2022/01/10-16:37:40.496 4f Level-0 table #418: 17130 bytes OK
+2022/01/10-16:37:40.514 4f Delete type=0 #415

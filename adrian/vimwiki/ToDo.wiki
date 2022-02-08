@@ -1,0 +1,10 @@
+[[index|Back To Index]]
+
+ToDo:
+
+- [ ] Pasar las notas de google keep
+- [ ] Hacer PixelArt
+- [ ] Hacer Juego
+- [ ] Revisar posible configuracion de teclado estilo vi
+
+Done:

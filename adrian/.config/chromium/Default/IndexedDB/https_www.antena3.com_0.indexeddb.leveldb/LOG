@@ -1,0 +1,5 @@
+2021/02/27-09:33:21.893 11d1 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_www.antena3.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/02/27-09:33:24.306 11d1 Level-0 table #5: started
+2021/02/27-09:33:24.309 11d1 Level-0 table #5: 2773 bytes OK
+2021/02/27-09:33:24.315 11d1 Delete type=0 #3
+2021/02/27-09:33:24.315 11d1 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

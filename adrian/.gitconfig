@@ -1,0 +1,7 @@
+[user]
+	email = adryanmonforte94@gmail.com
+	name = Adrian
+[color]
+	ui = true
+[core]
+	editor = nvim

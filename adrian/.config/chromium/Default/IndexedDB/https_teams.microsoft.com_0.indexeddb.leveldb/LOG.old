@@ -1,0 +1,6 @@
+2021/05/05-10:58:21.804 9f9 Creating DB /home/adrian/.config/chromium/Default/IndexedDB/https_teams.microsoft.com_0.indexeddb.leveldb since it was missing.
+2021/05/05-10:58:21.814 9f9 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_teams.microsoft.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/05/05-10:58:25.368 9fe Level-0 table #5: started
+2021/05/05-10:58:25.373 9fe Level-0 table #5: 952 bytes OK
+2021/05/05-10:58:25.379 9fe Delete type=0 #3
+2021/05/05-10:58:25.379 9fe Manual compaction at level-0 from (begin) .. (end); will stop at (end)

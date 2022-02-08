@@ -1,0 +1,5 @@
+2021/02/22-09:25:58.118 126f Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_ubunlog.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/02/22-09:36:27.046 129f Level-0 table #5: started
+2021/02/22-09:36:27.162 129f Level-0 table #5: 6045 bytes OK
+2021/02/22-09:36:27.176 129f Delete type=0 #3
+2021/02/22-09:36:27.176 129f Manual compaction at level-0 from (begin) .. (end); will stop at (end)

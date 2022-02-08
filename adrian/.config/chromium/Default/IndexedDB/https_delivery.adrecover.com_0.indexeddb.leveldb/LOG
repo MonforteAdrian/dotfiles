@@ -1,0 +1,15 @@
+2021/07/07-13:56:06.617 886a Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_delivery.adrecover.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/07/07-13:56:06.617 886a Recovering log #7
+2021/07/07-13:56:06.618 886a Reusing old log /home/adrian/.config/chromium/Default/IndexedDB/https_delivery.adrecover.com_0.indexeddb.leveldb/000007.log 
+2021/07/07-13:56:09.267 9fd8 Level-0 table #11: started
+2021/07/07-13:56:09.270 9fd8 Level-0 table #11: 209 bytes OK
+2021/07/07-13:56:09.275 9fd8 Delete type=0 #7
+2021/07/07-13:56:09.275 9fd8 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2021/07/07-13:56:09.275 9fd8 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x00\x00\x00\x06' @ 11 : 1
+2021/07/07-13:56:09.275 9fd8 Compacting 1@1 + 1@2 files
+2021/07/07-13:56:09.278 9fd8 Generated table #12@1: 9 keys, 383 bytes
+2021/07/07-13:56:09.278 9fd8 Compacted 1@1 + 1@2 files => 383 bytes
+2021/07/07-13:56:09.283 9fd8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2021/07/07-13:56:09.284 9fd8 Delete type=2 #11
+2021/07/07-13:56:09.284 9fd8 Delete type=2 #5
+2021/07/07-13:56:09.284 9fd8 Manual compaction at level-1 from '\x00\x00\x00\x00\x06' @ 11 : 1 .. (end); will stop at (end)

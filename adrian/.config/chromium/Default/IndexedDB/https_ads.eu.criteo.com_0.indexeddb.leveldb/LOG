@@ -1,0 +1,6 @@
+2021/10/29-13:04:10.967 977fb Creating DB /home/adrian/.config/chromium/Default/IndexedDB/https_ads.eu.criteo.com_0.indexeddb.leveldb since it was missing.
+2021/10/29-13:04:10.976 977fb Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_ads.eu.criteo.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/10/29-13:04:19.438 977fb Level-0 table #5: started
+2021/10/29-13:04:19.441 977fb Level-0 table #5: 385 bytes OK
+2021/10/29-13:04:19.446 977fb Delete type=0 #3
+2021/10/29-13:04:19.447 977fb Manual compaction at level-0 from (begin) .. (end); will stop at (end)

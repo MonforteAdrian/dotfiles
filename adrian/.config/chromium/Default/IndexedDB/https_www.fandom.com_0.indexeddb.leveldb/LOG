@@ -1,0 +1,15 @@
+2021/11/10-22:58:11.645 6c95e Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_www.fandom.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/11/10-22:58:11.645 6c95e Recovering log #15
+2021/11/10-22:58:11.645 6c95e Reusing old log /home/adrian/.config/chromium/Default/IndexedDB/https_www.fandom.com_0.indexeddb.leveldb/000015.log 
+2021/11/10-23:02:34.390 6cafa Level-0 table #20: started
+2021/11/10-23:02:34.395 6cafa Level-0 table #20: 3268 bytes OK
+2021/11/10-23:02:34.401 6cafa Delete type=0 #15
+2021/11/10-23:02:34.402 6cafa Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2021/11/10-23:02:34.402 6cafa Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x03\x02\x03\x00\x00\x00\x00\x00\x00*@' @ 771 : 1
+2021/11/10-23:02:34.402 6cafa Compacting 1@1 + 1@2 files
+2021/11/10-23:02:34.407 6cafa Generated table #21@1: 122 keys, 6510 bytes
+2021/11/10-23:02:34.407 6cafa Compacted 1@1 + 1@2 files => 6510 bytes
+2021/11/10-23:02:34.413 6cafa compacted to: files[ 0 0 1 0 0 0 0 ]
+2021/11/10-23:02:34.414 6cafa Delete type=2 #20
+2021/11/10-23:02:34.414 6cafa Delete type=2 #17
+2021/11/10-23:02:34.414 6cafa Manual compaction at level-1 from '\x00\x01\x03\x02\x03\x00\x00\x00\x00\x00\x00*@' @ 771 : 1 .. (end); will stop at (end)

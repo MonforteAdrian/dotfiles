@@ -1,0 +1,6 @@
+2021/10/13-11:29:35.767 5bb9 Reusing MANIFEST /home/adrian/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2021/10/13-11:29:35.768 5bb9 Recovering log #50
+2021/10/13-11:29:35.772 5bb9 Reusing old log /home/adrian/.config/discord/Local Storage/leveldb/000050.log 
+2021/10/13-11:31:40.715 5bcf Level-0 table #54: started
+2021/10/13-11:31:40.731 5bcf Level-0 table #54: 19854 bytes OK
+2021/10/13-11:31:40.745 5bcf Delete type=0 #50

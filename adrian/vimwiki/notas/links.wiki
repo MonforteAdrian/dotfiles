@@ -1,0 +1,40 @@
+[[../index|Back To Index]]
+
+= Como organizar y desarrollar tu worldbuilding =
+  * [[https://www.reddit.com/r/worldbuilding/wiki/index|Index de la wiki en el subreddit de worldbuilding]]
+  * [[https://www.reddit.com/r/worldbuilding/wiki/organizational_tools|Herramientas para organizar tu worldbuilding]]
+  * [[https://np.reddit.com/r/worldbuilding/comments/4kl0bh/for_a_world_wiki_which_is_better_a_lot_of_wip/d3fxnvc/|Como organizar tu wiki]]
+  * [[https://np.reddit.com/r/worldbuilding/comments/5lauxu/i_am_building_a_new_world_and_i_have_no_idea_how/dbuswn5/|Como organizar tu wiki 2]]
+  * [[https://drive.google.com/drive/folders/1P4deqjP9dskxPSie8Ht-qHuwBOGin0BN|Sistema de carpetas para tu wiki]]
+  * [[https://worldbuildingpasta.blogspot.com/?m=1|Guia general para worldbuilding]]
+  * [[https://www.youtube.com/watch?v=39VKA8vPXGg|Sistema planetario alpha centauri]]
+  * [[https://www.16personalities.com/es/descripcion-de-los-tipos|Personalidades para la base de la magia]]
+
+= Como escribir =
+  * [[https://ctan.org/pkg/memoir|Para escribir un libro en LaTex]]
+  * [[https://en.wikipedia.org/wiki/Hero%27s_journey|Como escribir un heroe]]
+  * [[https://www.reddit.com/r/coolguides/comments/g302fj/the_heros_journey_story_structure_in_popular/?utm_medium=android_app&utm_source=share|Como escribir un heroe 2]]
+
+= Como crear un conlang =
+  * [[https://m.mythcreants.com/blog/how-to-create-a-simple-language/|Guia para crear conlang]]
+  * [[https://en.m.wikipedia.org/wiki/International_Phonetic_Alphabet|Fonetica]]
+
+= Otros worldbuildings para revisar =
+  * runeterra(lore, mapa y magia)
+  * star wars(lore, mapa y magia)
+  * lotr(lore, mapa y magia)
+  * harry potter(magia)
+  * mistborn(lore, mapa y magia)
+  * stormlight(lore, mapa y magia)
+  * thaumcraft(magia)
+  * got(lore, mapa y magia)
+  * magic(lore, mapa y magia)
+  * the witcher(lore, mapa y magia)
+  * avatar(lore, mapa y magia)
+
+= Mitologia =
+  * [[https://twitter.com/filkook/status/1255643904709451776?s=19|Dioses de la mitologia griega]]
+
+= Lugares para ideas =
+  * [[https://twitter.com/Nachodm10/status/1258109672080453635?s=19|Lugares increibles en espana]]
+  * 

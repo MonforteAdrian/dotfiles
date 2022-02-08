@@ -1,0 +1,6 @@
+2021/07/07-12:10:39.487 5abf Creating DB /home/adrian/.config/chromium/Default/IndexedDB/https_programmerclick.com_0.indexeddb.leveldb since it was missing.
+2021/07/07-12:10:39.512 5abf Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_programmerclick.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/07/07-12:42:10.793 836b Level-0 table #5: started
+2021/07/07-12:42:10.798 836b Level-0 table #5: 1764 bytes OK
+2021/07/07-12:42:10.804 836b Delete type=0 #3
+2021/07/07-12:42:10.804 836b Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,6 @@
+2021/10/22-14:41:19.307 8199 Creating DB /home/adrian/.config/chromium/Default/IndexedDB/https_www.teamblind.com_0.indexeddb.leveldb since it was missing.
+2021/10/22-14:41:19.317 8199 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_www.teamblind.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/10/22-14:41:51.329 85cd Level-0 table #5: started
+2021/10/22-14:41:51.337 85cd Level-0 table #5: 854 bytes OK
+2021/10/22-14:41:51.350 85cd Delete type=0 #3
+2021/10/22-14:41:51.350 85cd Manual compaction at level-0 from (begin) .. (end); will stop at (end)

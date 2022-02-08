@@ -1,0 +1,6 @@
+2022/02/08-13:39:12.412 3 Reusing MANIFEST /home/adrian/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
+2022/02/08-13:39:12.414 3 Recovering log #1139
+2022/02/08-13:39:12.415 3 Reusing old log /home/adrian/.config/chromium/Default/Local Storage/leveldb/001139.log 
+2022/02/08-13:49:31.602 a Level-0 table #1143: started
+2022/02/08-13:49:31.615 a Level-0 table #1143: 24020 bytes OK
+2022/02/08-13:49:31.631 a Delete type=0 #1139

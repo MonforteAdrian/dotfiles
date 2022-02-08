@@ -1,0 +1,5 @@
+2021/02/20-18:49:52.260 359 Reusing MANIFEST /home/adrian/.config/chromium/Default/IndexedDB/https_www.tecmint.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/02/20-18:50:33.937 359 Level-0 table #5: started
+2021/02/20-18:50:33.941 359 Level-0 table #5: 340 bytes OK
+2021/02/20-18:50:33.947 359 Delete type=0 #3
+2021/02/20-18:50:33.947 359 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

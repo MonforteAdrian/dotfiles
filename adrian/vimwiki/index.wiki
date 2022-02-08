@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                                                          %%
+%%   /$$   /$$                                                                                              %%
+%%  | $$  | $$                                                                                              %%
+%%  | $$  | $$  /$$$$$$  /$$$$$$$   /$$$$$$  /$$   /$$ /$$    /$$ /$$$$$$   /$$$$$$   /$$$$$$$  /$$$$$$     %%
+%%  | $$$$$$$$ /$$__  $$| $$__  $$ /$$__  $$| $$  | $$|  $$  /$$//$$__  $$ /$$__  $$ /$$_____/ /$$__  $$    %%
+%%  | $$__  $$| $$  \ $$| $$  \ $$| $$$$$$$$| $$  | $$ \  $$/$$/| $$$$$$$$| $$  \__/|  $$$$$$ | $$$$$$$$    %%
+%%  | $$  | $$| $$  | $$| $$  | $$| $$_____/| $$  | $$  \  $$$/ | $$_____/| $$       \____  $$| $$_____/    %%
+%%  | $$  | $$|  $$$$$$/| $$  | $$|  $$$$$$$|  $$$$$$$   \  $/  |  $$$$$$$| $$       /$$$$$$$/|  $$$$$$$    %%
+%%  |__/  |__/ \______/ |__/  |__/ \_______/ \____  $$    \_/    \_______/|__/      |_______/  \_______/    %%
+%%                                           /$$  | $$                                                      %%
+%%                                          |  $$$$$$/                                                      %%
+%%                                           \______/                                                       %%
+%%                                                                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+= ToDo =
+  * [[ToDo|Lista de tareas]]
+
+= Notas =
+
+== Cosmologia ==
+  * [[cosmologia/universo|Universo]]
+  * [[cosmologia/sistema_solar|Sistema Solar]]
+  * [[cosmologia/planeta|Planeta]]
+
+== Magia ==
+  * [[magia/reglas|Reglas de la magia]]
+
+== Cultura ==
+  * [[cultura/comida|Comida!!!!!]]
+  * [[cultura/lenguaje|Lenguaje]]
+  * [[cultura/gente|Gente]]
+  * [[cultura/tradiciones|Tradiciones]]
+  * [[cultura/filosofia|Filosofia]]
+
+== Mitologia ==
+  * [[mitologia/bases|Bases de la mitologia]]
+
+== Planeta ==
+  * [[planeta/ciencia|Ciencia]]
+  * [[planeta/geografia|Geografia]]
+  * [[planeta/regiones|Regiones]]
+
+== Historia ==
+  * [[historia/era0|Era Inicial]]
+  * [[historia/era1|Era Primera]]
+  * [[historia/era2|Era Segunda]]
+
+=== Ideas Varias ===
+  * [[notas/notas_rapidas|Notas rapidas]]
+  * [[notas/links|Links para revisar]]
