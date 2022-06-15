@@ -1,9 +1,12 @@
 [submodule "qmk_firmware"]
 	path = qmk_firmware
-	url = https://github.com/MonforteAdrian/qmk_firmware.git
+  url = git@github.com:MonforteAdrian/qmk_firmware.git
 [submodule "vimwiki"]
 	path = vimwiki
-	url = https://github.com/MonforteAdrian/HoneyverseWiki.git
+	url = git@github.com:MonforteAdrian/HoneyverseWiki.git
 [submodule "my_game"]
 	path = my_game
-	url = https://github.com/MonforteAdrian/My_Game.git
+	url = git@github.com:MonforteAdrian/My_Game.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:MonforteAdrian/nvim.git

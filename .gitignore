@@ -46,5 +46,3 @@ rustlings
 .Xauthority
 .xsession-errors
 .xsession-errors.old
-
-.config/nvim
