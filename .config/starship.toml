@@ -1,0 +1,49 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Make prompt a single line instead of two lines
+#[line_break]
+#disabled = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+# [character]                         # The name of the module we are configuring is "character"
+# success_symbol = "[➜](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
+
+# Use custom format
+# format = """
+# [┌───────────────────>](bold green)
+# [│](bold green)$directory$rust$package
+# [└─>](bold green) """
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+# Dracula theme
+[aws]
+style = "bold #ffb86c"
+
+[character]
+error_symbol = "[➜](bold #ff5555)"
+success_symbol = "[➜](bold #50fa7b)"
+vicmd_symbol = "[λ](bold #bd93f9)"
+
+[cmd_duration]
+style = "bold #f1fa8c"
+
+[directory]
+truncation_length = 10
+style = "bold #bd93f9"
+
+[git_branch]
+style = "bold #ff79c6"
+
+[git_status]
+style = "bold #ff5555"
+
+[hostname]
+style = "bold #ff5555"
+
+[username]
+format = "[$user]($style) on "
+style_user = "bold #bd93f9"

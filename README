@@ -1,0 +1,24 @@
+==== PROGRAMS ====
+dwm               --window manager
+dmenu             --launcher
+st                --terminal
+picom             --makes dwm work
+
+nvidia            --drivers graphics
+pulseaudio        --drivers audio
+pavucontrol       --audio control
+solaar            --logitech mouse
+
+google chrome     --browser
+discord           --comunication
+
+nvim              --text editor
+ranger            --filemanager
+fish              --shell
+starship          --prompt
+git               --version control
+rust & cargo      --rust development
+nerdfonts         --fonts
+
+cbonsai           --bonsai generator
+cmatrix           --matrix generator
