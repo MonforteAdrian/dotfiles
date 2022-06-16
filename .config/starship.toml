@@ -29,10 +29,10 @@ success_symbol = "[➜](bold #50fa7b)"
 vicmd_symbol = "[λ](bold #bd93f9)"
 
 [cmd_duration]
-style = "bold #f1fa8c"
+disabled = true
 
 [directory]
-truncation_length = 10
+truncation_length = 20
 style = "bold #bd93f9"
 
 [git_branch]
@@ -42,8 +42,8 @@ style = "bold #ff79c6"
 style = "bold #ff5555"
 
 [hostname]
-style = "bold #ff5555"
+style = "bold #bd93f9"
 
 [username]
 format = "[$user]($style) on "
-style_user = "bold #bd93f9"
+style_user = "bold #8be9fd"
