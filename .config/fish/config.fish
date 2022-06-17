@@ -86,9 +86,6 @@ alias clear='echo -en "\x1b[2J\x1b[1;1H" ; echo; echo; seq 1 (tput cols) | sort 
 # navigation
 alias ..='cd ..'
 
-# vim
-alias vim='nvim'
-
 # ranger
 alias ranger='ranger --choosedir="$HOME/.rangerdir"; cd (cat $HOME/.rangerdir)'
 
