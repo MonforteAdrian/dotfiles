@@ -46,3 +46,5 @@ rustlings
 .Xauthority
 .xsession-errors
 .xsession-errors.old
+
+**/target
