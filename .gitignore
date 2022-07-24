@@ -1,4 +1,6 @@
 
+#Directories
+**/target
 .cache
 .cargo
 .config/cef_user_data
@@ -25,7 +27,9 @@ Downloads
 old
 opt
 rustlings
+vscode
 
+#Files
 .bash_history
 .bash_logout
 .bash_profile
@@ -46,5 +50,3 @@ rustlings
 .Xauthority
 .xsession-errors
 .xsession-errors.old
-
-**/target
