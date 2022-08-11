@@ -153,6 +153,9 @@ lain.layout.cascade.tile.ncol          = 2
 
 beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/themes/%s/theme.lua", chosen_theme))
 
+beautiful.gap_single_client = false
+beautiful.useless_gap = 4
+
 local myawesomemenu = {
     { "hotkeys", function() return false, hotkeys_popup.show_help end },
     { "manual", terminal .. " -e 'man awesome'" },
@@ -738,9 +741,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --left-of eDP-1-1")
 awful.spawn.with_shell("lxsession")
-awful.spawn.with_shell("picom")
 awful.spawn.with_shell("find ~/wallpapers/ -type f | shuf -n 1 | xargs xwallpaper --stretch")
+awful.spawn.with_shell("picom")
 --awful.spawn.with_shell("nm-applet")
 
 awful.spawn.with_shell("volumeicon")
-awful.spawn.with_shell("killall conky && conky -c $HOME/.config/conky/awesome/" .. "doom-one" .. "-01.conkyrc")
+--awful.spawn.with_shell("killall conky && conky -c $HOME/.config/conky/awesome/" .. "doom-one" .. "-01.conkyrc")
