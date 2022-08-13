@@ -56,7 +56,6 @@ run_once({ "unclutter -root" }) -- entries must be comma-separated
 local themes = {
     "powerarrow", -- 1
 }
-
 -- choose your theme here
 local chosen_theme = themes[1]
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
@@ -72,8 +71,8 @@ local mediaplayer = "mpv"
 
 -- awesome variables
 awful.util.terminal = terminal
---awful.util.tagnames = { "", "", "", "", "", "", "", "", "" }
-awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX " }
+awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }
+--awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX " }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
     awful.layout.suit.tile,
@@ -155,7 +154,6 @@ beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/theme
 
 beautiful.gap_single_client = false
 beautiful.useless_gap = 4
-
 local myawesomemenu = {
     { "hotkeys", function() return false, hotkeys_popup.show_help end },
     { "manual", terminal .. " -e 'man awesome'" },
@@ -208,9 +206,9 @@ globalkeys = my_table.join(
     -- {{{ Personal keybindings
 
     -- Awesome keybindings
-    awful.key({ modkey,         }, "Return", function () awful.spawn( terminal ) end,
+    awful.key({ ctrlkey,         }, "Return", function () awful.spawn( terminal ) end,
               {description = "Launch terminal", group = "awesome"}),
-    awful.key({ modkey,         }, "b", function () awful.spawn( "google-chrome-stable" ) end,
+    awful.key({ ctrlkey,         }, "b", function () awful.spawn( "google-chrome-stable" ) end,
               {description = "Launch Google chrome", group = "awesome"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "Reload awesome", group = "awesome"}),
@@ -273,22 +271,10 @@ globalkeys = my_table.join(
     awful.key({ altkey,         }, "Escape", awful.tag.history.restore,
         {description = "go back", group = "tag"}),
 
-     -- Tag browsing ALT+TAB (ALT+SHIFT+TAB)
-    awful.key({ altkey,         }, "Tab", awful.tag.viewnext,
-        {description = "view next", group = "tag"}),
-    awful.key({ altkey, "Shift" }, "Tab", awful.tag.viewprev,
-        {description = "view previous", group = "tag"}),
-
-    -- Non-empty tag browsing CTRL+TAB (CTRL+SHIFT+TAB)
-    awful.key({ ctrlkey }, "Tab", function () lain.util.tag_view_nonempty(-1) end,
-              {description = "view  previous nonempty", group = "tag"}),
-    awful.key({ ctrlkey, "Shift" }, "Tab", function () lain.util.tag_view_nonempty(1) end,
-              {description = "view  previous nonempty", group = "tag"}),
-
     -- Default client focus
-    awful.key({ modkey,         }, "j", function () awful.client.focus.byidx( 1) end,
+    awful.key({ ctrlkey,         }, "j", function () awful.client.focus.byidx( 1) end,
         {description = "Focus next by index", group = "client"}),
-    awful.key({ modkey,         }, "k", function () awful.client.focus.byidx(-1) end,
+    awful.key({ ctrlkey,         }, "k", function () awful.client.focus.byidx(-1) end,
         {description = "Focus previous by index", group = "client"}),
 
     -- By direction client focus
@@ -305,40 +291,18 @@ globalkeys = my_table.join(
         if client.focus then client.focus:raise() end end,
         {description = "Focus right", group = "client"}),
 
-        -- By direction client focus with arrows
-    awful.key({ ctrlkey, modkey }, "Down", function() awful.client.focus.global_bydirection("down")
-        if client.focus then client.focus:raise() end end,
-        {description = "Focus down", group = "client"}),
-    awful.key({ ctrlkey, modkey }, "Up", function() awful.client.focus.global_bydirection("up")
-        if client.focus then client.focus:raise() end end,
-        {description = "Focus up", group = "client"}),
-    awful.key({ ctrlkey, modkey }, "Left", function() awful.client.focus.global_bydirection("left")
-        if client.focus then client.focus:raise() end end,
-        {description = "Focus left", group = "client"}),
-    awful.key({ ctrlkey, modkey }, "Right", function() awful.client.focus.global_bydirection("right")
-        if client.focus then client.focus:raise() end end,
-        {description = "Focus right", group = "client"}),
-
     -- Layout manipulation
     awful.key({ modkey, "Shift" }, "j", function () awful.client.swap.byidx(1) end,
         {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift" }, "k", function () awful.client.swap.byidx( -1) end,
         {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey          }, ".", function () awful.screen.focus_relative(1) end,
-        {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey          }, ",", function () awful.screen.focus_relative(-1) end,
+    awful.key({ ctrlkey          }, ",", function () awful.screen.focus_relative(-1) end,
         {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,         }, "u", awful.client.urgent.jumpto,
         {description = "jump to urgent client", group = "client"}),
     awful.key({ ctrlkey,        }, "Tab", function () awful.client.focus.history.previous()
         if client.focus then client.focus:raise() end end,
         {description = "go back", group = "client"}),
-
-    -- On the fly useless gaps change
-    awful.key({ altkey, ctrlkey }, "j", function () lain.util.useless_gaps_resize(1) end,
-        {description = "increment useless gaps", group = "tag"}),
-    awful.key({ altkey, ctrlkey }, "k", function () lain.util.useless_gaps_resize(-1) end,
-        {description = "decrement useless gaps", group = "tag"}),
 
     -- Dynamic tagging
     awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
@@ -455,7 +419,7 @@ clientkeys = my_table.join(
             c:raise()
         end,
     {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift" }, "c", function (c) c:kill() end,
+    awful.key({ ctrlkey,        }, "q", function (c) c:kill() end,
       {description = "close", group = "hotkeys"}),
     awful.key({ modkey,         }, "t", awful.client.floating.toggle,
       {description = "toggle floating", group = "client"}),
@@ -575,50 +539,16 @@ awful.rules.rules = {
     { rule_any = { type = { "dialog", "normal" } },
       properties = { titlebars_enabled = false } },
 
-    -- Set applications to always map on the tag 1 on screen 1.
+    -- Set applications to always map on a specific tag and specific screen.
     -- find class or role via xprop command
     --{ rule = { class = browser1 },
-      --properties = { screen = 1, tag = awful.util.tagnames[1] } },
-
-    --{ rule = { class = editorgui },
-        --properties = { screen = 1, tag = awful.util.tagnames[2] } },
-
-    --{ rule = { class = "Geany" },
-        --properties = { screen = 1, tag = awful.util.tagnames[2] } },
-
-    -- Set applications to always map on the tag 3 on screen 1.
-    --{ rule = { class = "Inkscape" },
-        --properties = { screen = 1, tag = awful.util.tagnames[3] } },
-
-    -- Set applications to always map on the tag 4 on screen 1.
-    --{ rule = { class = "Gimp" },
-        --properties = { screen = 1, tag = awful.util.tagnames[4] } },
+      --properties = { screen = 2, tag = awful.util.tagnames[1] } },
 
     -- Set applications to be maximized at startup.
     -- find class or role via xprop command
 
     { rule = { class = "Gimp*", role = "gimp-image-window" },
           properties = { maximized = true } },
-
-    { rule = { class = "inkscape" },
-          properties = { maximized = true } },
-
-    { rule = { class = mediaplayer },
-          properties = { maximized = true } },
-
-    { rule = { class = "Vlc" },
-          properties = { maximized = true } },
-
-    { rule = { class = "VirtualBox Manager" },
-          properties = { maximized = true } },
-
-    { rule = { class = "VirtualBox Machine" },
-          properties = { maximized = true } },
-
-    { rule = { class = "Xfce4-settings-manager" },
-          properties = { floating = false } },
-
-
 
     -- Floating clients.
     { rule_any = {

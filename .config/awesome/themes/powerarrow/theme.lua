@@ -16,8 +16,8 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
 --theme.wallpaper                                 = theme.dir .. "/starwars.jpg"
-theme.font                                      = "JetBrains Mono 9"
-theme.taglist_font                              = "Ubuntu Bold 7"
+theme.font                                      = "JetBrainsMono Nerd Font 9"
+theme.taglist_font                              = "JetBrainsMono Nerd Font Mono 13"
 theme.fg_normal                                 = "#ffffff"
 theme.fg_focus                                  = "#A77AC4"
 theme.fg_urgent                                 = "#b74822"
@@ -27,7 +27,28 @@ theme.bg_urgent                                 = "#3F3F3F"
 theme.taglist_fg_focus                          = "#282a36"
 theme.tasklist_bg_focus                         = "#000000"
 theme.tasklist_fg_focus                         = "#A77AC4"
-theme.border_width                              = 2
+-- Arrange signal handler
+for s = 1, screen.count() do screen[s]:connect_signal("arrange", 
+  function ()
+    local clients = awful.client.visible(s)
+    local layout  = awful.layout.getname(awful.layout.get(s))
+
+    if #clients > 0 then -- Fine grained borders and floaters control
+      for _, c in pairs(clients) do -- Floaters always have borders
+        if awful.client.floating.get(c) or layout == "floating" then
+          c.border_width = 2
+
+        -- No borders with only one visible client
+        elseif #clients == 1 or layout == "max" then
+          c.border_width = 0
+        else
+          c.border_width = 2
+        end
+      end
+    end
+  end)
+end
+--theme.border_width                              = 0
 theme.border_normal                             = "#282a36"
 theme.border_focus                              = "#F07178"
 theme.border_marked                             = "#CC9393"
