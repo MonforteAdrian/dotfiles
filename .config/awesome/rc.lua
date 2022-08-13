@@ -71,7 +71,8 @@ local mediaplayer = "mpv"
 
 -- awesome variables
 awful.util.terminal = terminal
-awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }
+awful.util.tagnames = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" }
+--awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }
 --awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX " }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
@@ -180,18 +181,6 @@ awful.util.mymainmenu = freedesktop.menu.build({
 })
 --menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
 
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", function(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end)
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
 
@@ -262,14 +251,6 @@ globalkeys = my_table.join(
         end,
         {description = "followed by KEY", group = "Dmscripts"}
         ),
-
-    -- Tag browsing with modkey
-    awful.key({ modkey,         }, "Left",   awful.tag.viewprev,
-        {description = "view previous", group = "tag"}),
-    awful.key({ modkey,         }, "Right",  awful.tag.viewnext,
-        {description = "view next", group = "tag"}),
-    awful.key({ altkey,         }, "Escape", awful.tag.history.restore,
-        {description = "go back", group = "tag"}),
 
     -- Default client focus
     awful.key({ ctrlkey,         }, "j", function () awful.client.focus.byidx( 1) end,
@@ -344,18 +325,6 @@ globalkeys = my_table.join(
               end,
               {description = "restore minimized", group = "client"}),
 
-    -- Dropdown application
-    awful.key({ modkey, }, "F12", function () awful.screen.focused().quake:toggle() end,
-              {description = "dropdown application", group = "super"}),
-
-    -- Widgets popups
-    awful.key({ altkey, }, "c", function () lain.widget.cal.show(7) end,
-        {description = "show calendar", group = "widgets"}),
-    awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
-        {description = "show filesystem", group = "widgets"}),
-    awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
-        {description = "show weather", group = "widgets"}),
-
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
         {description = "+10%", group = "hotkeys"}),
@@ -389,25 +358,7 @@ globalkeys = my_table.join(
         function ()
             os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
             beautiful.volume.update()
-        end),
-
-    -- Copy primary to clipboard (terminals to gtk)
-    awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
-        {description = "copy terminal to gtk", group = "hotkeys"}),
-    -- Copy clipboard to primary (gtk to terminals)
-    awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
-        {description = "copy gtk to terminal", group = "hotkeys"}),
-    awful.key({ altkey, "Shift" }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"})
-    --]]
+        end)
 )
 
 clientkeys = my_table.join(
@@ -656,18 +607,42 @@ client.connect_signal("mouse::enter", function(c)
 end)
 
 -- No border for maximized clients
-function border_adjust(c)
-    if c.maximized then -- no borders if only 1 client visible
-        c.border_width = 0
-    elseif #awful.screen.focused().clients > 1 then
-        c.border_width = beautiful.border_width
-        c.border_color = beautiful.border_focus
+
+client.connect_signal("focus",
+  function(c)
+    if c.maximized_horizontal == true and c.maximized_vertical == true then
+      c.border_color = beautiful.border_normal
+    else
+      c.border_color = beautiful.border_focus
     end
+  end)
+
+client.connect_signal("unfocus",
+  function(c) c.border_color = beautiful.border_normal
+  end)
+
+-- Arrange signal handler
+for s = 1, screen.count() do screen[s]:connect_signal("arrange", 
+  function ()
+    local clients = awful.client.visible(s)
+    local layout  = awful.layout.getname(awful.layout.get(s))
+
+    if #clients > 0 then -- Fine grained borders and floaters control
+      for _, c in pairs(clients) do -- Floaters always have borders
+        if awful.client.floating.get(c) or layout == "floating" then
+          c.border_width = beautiful.border_width
+
+        -- No borders with only one visible client
+        elseif #clients == 1 or layout == "max" then
+          c.border_width = 0
+        else
+          c.border_width = beautiful.border_width
+        end
+      end
+    end
+  end)
 end
 
-client.connect_signal("focus", border_adjust)
-client.connect_signal("property::maximized", border_adjust)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 awful.spawn.with_shell("xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --left-of eDP-1-1")
 awful.spawn.with_shell("lxsession")
