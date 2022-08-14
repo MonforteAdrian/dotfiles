@@ -1,0 +1,12 @@
+@document.meta
+  title: index
+  description: 
+  authors: adrian
+  categories: 
+  created: 2022-08-14
+  version: 0.0.12
+@end
+
+= TOC Table of Contents
+
+* Hello, I am heading!
