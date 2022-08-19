@@ -1,12 +1,14 @@
 @document.meta
-  title: index
-  description: 
-  authors: adrian
-  categories: 
+  title: Honeyverse Wiki
+  description: This is a wiki about everything related to the honeyverse
+  author: Adrian Monforte
+  categories: Wiki
   created: 2022-08-14
   version: 0.0.12
 @end
 
 = TOC Table of Contents
+
+* ToDo
 
 * Hello, I am heading!
