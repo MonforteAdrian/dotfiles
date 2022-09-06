@@ -218,39 +218,39 @@ globalkeys = my_table.join(
         {description = "Show/hide wibox (bar)", group = "awesome"}),
 
     -- Run launcher
-    awful.key({ modkey, "Shift" }, "Return", function () awful.util.spawn("dm-run") end,
+    awful.key({ modkey }, "p", function () awful.util.spawn("dmenu_run") end,
       {description = "Run launcher", group = "hotkeys"}),
 
     -- Dmscripts (Super + p followed by KEY)
-    awful.key( {modkey}, "p", function()
-      local grabber
-      grabber =
-        awful.keygrabber.run(
-          function(_, key, event)
-            if event == "release" then return end
+    --awful.key( {modkey}, "p", function()
+    --  local grabber
+    --  grabber =
+    --    awful.keygrabber.run(
+    --      function(_, key, event)
+    --        if event == "release" then return end
 
-            if     key == "h" then awful.spawn.with_shell("dm-hub")
-            elseif key == "a" then awful.spawn.with_shell("dm-sounds")
-            elseif key == "b" then awful.spawn.with_shell("dm-setbg")
-            elseif key == "c" then awful.spawn.with_shell("dtos-colorscheme")
-            elseif key == "e" then awful.spawn.with_shell("dm-confedit")
-            elseif key == "i" then awful.spawn.with_shell("dm-maim")
-            elseif key == "k" then awful.spawn.with_shell("dm-kill")
-            elseif key == "m" then awful.spawn.with_shell("dm-man")
-            elseif key == "n" then awful.spawn.with_shell("dm-note")
-            elseif key == "o" then awful.spawn.with_shell("dm-bookman")
-            elseif key == "p" then awful.spawn.with_shell("passmenu -p \"Pass: \"")
-            elseif key == "q" then awful.spawn.with_shell("dm-logout")
-            elseif key == "r" then awful.spawn.with_shell("dm-radio")
-            elseif key == "s" then awful.spawn.with_shell("dm-websearch")
-            elseif key == "t" then awful.spawn.with_shell("dm-translate")
-            end
-            awful.keygrabber.stop(grabber)
-            end
-          )
-        end,
-        {description = "followed by KEY", group = "Dmscripts"}
-        ),
+    --        if     key == "h" then awful.spawn.with_shell("dm-hub")
+    --        elseif key == "a" then awful.spawn.with_shell("dm-sounds")
+    --        elseif key == "b" then awful.spawn.with_shell("dm-setbg")
+    --        elseif key == "c" then awful.spawn.with_shell("dtos-colorscheme")
+    --        elseif key == "e" then awful.spawn.with_shell("dm-confedit")
+    --        elseif key == "i" then awful.spawn.with_shell("dm-maim")
+    --        elseif key == "k" then awful.spawn.with_shell("dm-kill")
+    --        elseif key == "m" then awful.spawn.with_shell("dm-man")
+    --        elseif key == "n" then awful.spawn.with_shell("dm-note")
+    --        elseif key == "o" then awful.spawn.with_shell("dm-bookman")
+    --        elseif key == "p" then awful.spawn.with_shell("passmenu -p \"Pass: \"")
+    --        elseif key == "q" then awful.spawn.with_shell("dm-logout")
+    --        elseif key == "r" then awful.spawn.with_shell("dm-radio")
+    --        elseif key == "s" then awful.spawn.with_shell("dm-websearch")
+    --        elseif key == "t" then awful.spawn.with_shell("dm-translate")
+    --        end
+    --        awful.keygrabber.stop(grabber)
+    --        end
+    --      )
+    --    end,
+    --    {description = "followed by KEY", group = "Dmscripts"}
+    --    ),
 
     -- Default client focus
     awful.key({ ctrlkey,         }, "j", function () awful.client.focus.byidx( 1) end,
