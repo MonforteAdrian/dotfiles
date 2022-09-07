@@ -195,9 +195,9 @@ globalkeys = my_table.join(
     -- {{{ Personal keybindings
 
     -- Awesome keybindings
-    awful.key({ ctrlkey,         }, "Return", function () awful.spawn( terminal ) end,
+    awful.key({ modkey,         }, "Return", function () awful.spawn( terminal ) end,
               {description = "Launch terminal", group = "awesome"}),
-    awful.key({ ctrlkey,         }, "b", function () awful.spawn( "google-chrome-stable" ) end,
+    awful.key({ modkey,         }, "b", function () awful.spawn( "google-chrome-stable" ) end,
               {description = "Launch Google chrome", group = "awesome"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "Reload awesome", group = "awesome"}),
@@ -253,9 +253,9 @@ globalkeys = my_table.join(
     --    ),
 
     -- Default client focus
-    awful.key({ ctrlkey,         }, "j", function () awful.client.focus.byidx( 1) end,
+    awful.key({ modkey,         }, "j", function () awful.client.focus.byidx( 1) end,
         {description = "Focus next by index", group = "client"}),
-    awful.key({ ctrlkey,         }, "k", function () awful.client.focus.byidx(-1) end,
+    awful.key({ modkey,         }, "k", function () awful.client.focus.byidx(-1) end,
         {description = "Focus previous by index", group = "client"}),
 
     -- By direction client focus
@@ -277,7 +277,7 @@ globalkeys = my_table.join(
         {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift" }, "k", function () awful.client.swap.byidx( -1) end,
         {description = "swap with previous client by index", group = "client"}),
-    awful.key({ ctrlkey          }, ",", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey          }, ",", function () awful.screen.focus_relative(-1) end,
         {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,         }, "u", awful.client.urgent.jumpto,
         {description = "jump to urgent client", group = "client"}),
@@ -370,7 +370,7 @@ clientkeys = my_table.join(
             c:raise()
         end,
     {description = "toggle fullscreen", group = "client"}),
-    awful.key({ ctrlkey,        }, "q", function (c) c:kill() end,
+    awful.key({ modkey,        }, "q", function (c) c:kill() end,
       {description = "close", group = "hotkeys"}),
     awful.key({ modkey,         }, "t", awful.client.floating.toggle,
       {description = "toggle floating", group = "client"}),
