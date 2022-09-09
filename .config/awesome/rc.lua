@@ -606,6 +606,15 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = true})
 end)
 
+awful.spawn.with_shell("xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --left-of eDP-1-1")
+awful.spawn.with_shell("lxsession")
+awful.spawn.with_shell("find ~/wallpapers/ -type f | shuf -n 1 | xargs xwallpaper --stretch")
+awful.spawn.with_shell("picom")
+--awful.spawn.with_shell("nm-applet")
+
+awful.spawn.with_shell("volumeicon")
+--awful.spawn.with_shell("killall conky && conky -c $HOME/.config/conky/awesome/" .. "doom-one" .. "-01.conkyrc")
+
 -- No border for maximized clients
 
 client.connect_signal("focus",
@@ -642,13 +651,3 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange",
     end
   end)
 end
-
-
-awful.spawn.with_shell("xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --left-of eDP-1-1")
-awful.spawn.with_shell("lxsession")
-awful.spawn.with_shell("find ~/wallpapers/ -type f | shuf -n 1 | xargs xwallpaper --stretch")
-awful.spawn.with_shell("picom")
---awful.spawn.with_shell("nm-applet")
-
-awful.spawn.with_shell("volumeicon")
---awful.spawn.with_shell("killall conky && conky -c $HOME/.config/conky/awesome/" .. "doom-one" .. "-01.conkyrc")

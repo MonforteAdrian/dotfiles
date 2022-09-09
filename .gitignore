@@ -24,6 +24,7 @@
 .ssh
 .steam
 bevy
+bevy_ecs_tilemap
 Downloads
 old
 opt
