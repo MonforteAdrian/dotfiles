@@ -10,37 +10,41 @@
 = TOC Table of Contents
 
 * ToDo
+  - [-] Universe
+    - [-] Canon
+    - [-] History
+    - [ ] Check google keep notes
+  - [-] Art
+    - [x] templates for the Game
+    - [ ] pixel art for the Game
+    - [ ] Universe map
+    - [ ] Planet map
+  - [-] [Game]{https://trello.com/b/1kP94Ame/mygame}
 
-* Notas
- ** Cosmology
-    - {:cosmology/universe:}[Universe]
-    - Solar system
-    - Planet
-
- ** Magic
-    - Rules
-
- ** Culture
-    - Food!!!!!
-    - Lenguage
-    - People
-    - Traditions
-    - Philosophy
-
- ** Mithology
-    - Bases
-
- ** Planet
-    - Science
-    - Geography
-    - Regions
-
- ** History
-    - Initial age
-    - First age
-    - Second age
-    - Third age
-
-  *** Various
-      - Quick Notes
-      - To review
+* Notes
+** Cosmology
+   - {:cosmology/universe:}[Universe]
+   - {:cosmology/star_system:}[Star System]
+   - {:cosmology/planet:}[Planet]
+** Magic
+   - {:magic/rules:}[Magic Rules]
+** Culture
+   - {:culture/food:}[Food!!!]
+   - {:culture/language:}[Language]
+   - {:culture/people:}[People]
+   - {:culture/traditions:}[Traditions]
+   - {:culture/philosophy:}[Phylosophy]
+** Mithology
+   - Bases
+** Planet
+   - Science
+   - Geography
+   - Regions
+** History
+   - {:history/age_0:}[Initial age]
+   - {:history/age_1:}[First age]
+   - {:history/age_2:}[Second age]
+   - {:history/age_3:}[Third age]
+*** Various
+    - {:various/notes:}[Quick Notes]
+    - {:various/to_review:}[To review]
