@@ -14,6 +14,7 @@
     - [-] Canon
     - [-] History
     - [ ] Check google keep notes
+    - [ ] Check overleaf
   - [-] Art
     - [x] templates for the Game
     - [ ] pixel art for the Game
@@ -28,23 +29,30 @@
    - {:cosmology/planet:}[Planet]
 ** Magic
    - {:magic/rules:}[Magic Rules]
-** Culture
+** General Culture
    - {:culture/food:}[Food!!!]
    - {:culture/language:}[Language]
    - {:culture/people:}[People]
    - {:culture/traditions:}[Traditions]
    - {:culture/philosophy:}[Phylosophy]
-** Mithology
-   - Bases
+** Mythology
+   - {:mythology/creation:}[The start]
+   - {:mythology/characters:}[Characters in the mythology]
+   - {:mythology/myths:}[Myths]
 ** Planet
-   - Science
-   - Geography
-   - Regions
+   - {:planet/science:}[Science]
+   - {:planet/geograhy:}[Geography]
+   - {:planet/flora:}[Flora]
+   - {:planet/fauna:}[Fauna]
+** Nations
+*** Nation x
+    - Culture
 ** History
    - {:history/age_0:}[Initial age]
    - {:history/age_1:}[First age]
    - {:history/age_2:}[Second age]
    - {:history/age_3:}[Third age]
-*** Various
+
+* Various
     - {:various/notes:}[Quick Notes]
     - {:various/to_review:}[To review]
