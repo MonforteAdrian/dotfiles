@@ -29,12 +29,20 @@
    - {:cosmology/planet:}[Planet]
 ** Magic
    - {:magic/rules:}[Magic Rules]
+   - {:magic/spells:}[Spells]
+   - {:magic/alchemy:}[Alchemy]
 ** General Culture
    - {:culture/food:}[Food!!!]
    - {:culture/language:}[Language]
    - {:culture/people:}[People]
+   - {:culture/military:}[Military]
    - {:culture/traditions:}[Traditions]
+   - {:culture/entertainment:}[Entertainment]
    - {:culture/philosophy:}[Phylosophy]
+   - {:culture/medicine:}[Medicine]
+   - {:culture/profesions:}[Profesions]
+   - {:culture/economy:}[Economy]
+   - {:culture/education:}[Education]
 ** Mythology
    - {:mythology/creation:}[The start]
    - {:mythology/characters:}[Characters in the mythology]
@@ -45,9 +53,9 @@
    - {:planet/flora:}[Flora]
    - {:planet/fauna:}[Fauna]
 ** Nations
-*** Nation x
-    - Culture
+   - {:nations/nation_x:}[Nation template]
 ** History
+   - {:history/compendium:}[Compendium]
    - {:history/age_0:}[Initial age]
    - {:history/age_1:}[First age]
    - {:history/age_2:}[Second age]
