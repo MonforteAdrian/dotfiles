@@ -1,5 +1,5 @@
 @document.meta
-  title: Honeyverse Wiki
+  title: Wiki
   description: This is a wiki about everything related to the honeyverse
   author: Adrian Monforte
   categories: Wiki
@@ -23,44 +23,45 @@
   - [-] [Game]{https://trello.com/b/1kP94Ame/mygame}
 
 * Notes
-** Cosmology
-   - {:cosmology/universe:}[Universe]
-   - {:cosmology/star_system:}[Star System]
-   - {:cosmology/planet:}[Planet]
-** Magic
-   - {:magic/rules:}[Magic Rules]
-   - {:magic/spells:}[Spells]
-   - {:magic/alchemy:}[Alchemy]
-** General Culture
-   - {:culture/food:}[Food!!!]
-   - {:culture/language:}[Language]
-   - {:culture/people:}[People]
-   - {:culture/military:}[Military]
-   - {:culture/traditions:}[Traditions]
-   - {:culture/entertainment:}[Entertainment]
-   - {:culture/philosophy:}[Phylosophy]
-   - {:culture/medicine:}[Medicine]
-   - {:culture/profesions:}[Profesions]
-   - {:culture/economy:}[Economy]
-   - {:culture/education:}[Education]
-** Mythology
-   - {:mythology/creation:}[The start]
-   - {:mythology/characters:}[Characters in the mythology]
-   - {:mythology/myths:}[Myths]
-** Planet
-   - {:planet/science:}[Science]
-   - {:planet/geograhy:}[Geography]
-   - {:planet/flora:}[Flora]
-   - {:planet/fauna:}[Fauna]
-** Nations
-   - {:nations/nation_x:}[Nation template]
-** History
-   - {:history/compendium:}[Compendium]
-   - {:history/age_0:}[Initial age]
-   - {:history/age_1:}[First age]
-   - {:history/age_2:}[Second age]
-   - {:history/age_3:}[Third age]
+  The name can be honey(in the conlang or mel like in latin) + earth(the name of the god that created the planet)
+ ** Cosmology
+    - {:cosmology/universe:}[Universe]
+    - {:cosmology/star_system:}[Star System]
+    - {:cosmology/planet:}[Planet]
+ ** Magic
+    - {:magic/rules:}[Magic Rules]
+    - {:magic/spells:}[Spells]
+    - {:magic/alchemy:}[Alchemy]
+ ** General Culture
+    - {:culture/food:}[Food!!!]
+    - {:culture/language:}[Language]
+    - {:culture/people:}[People]
+    - {:culture/military:}[Military]
+    - {:culture/traditions:}[Traditions]
+    - {:culture/entertainment:}[Entertainment]
+    - {:culture/philosophy:}[Phylosophy]
+    - {:culture/medicine:}[Medicine]
+    - {:culture/profesions:}[Profesions]
+    - {:culture/economy:}[Economy]
+    - {:culture/education:}[Education]
+ ** Mythology
+    - {:mythology/creation:}[The start]
+    - {:mythology/characters:}[Characters in the mythology]
+    - {:mythology/myths:}[Myths]
+ ** Planet
+    - {:planet/science:}[Science]
+    - {:planet/geograhy:}[Geography]
+    - {:planet/flora:}[Flora]
+    - {:planet/fauna:}[Fauna]
+ ** Nations
+    - {:nations/nation_x:}[Nation template]
+ ** History
+    - {:history/compendium:}[Compendium]
+    - {:history/age_0:}[Initial age]
+    - {:history/age_1:}[First age]
+    - {:history/age_2:}[Second age]
+    - {:history/age_3:}[Third age]
 
 * Various
-    - {:various/notes:}[Quick Notes]
-    - {:various/to_review:}[To review]
+  - {:various/notes:}[Quick Notes]
+  - {:various/to_review:}[To review]
