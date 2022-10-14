@@ -39,6 +39,7 @@ vscode
 .gitconfig
 .INSTALL
 .lesshst
+**.lock
 .MTREE
 .nvidia-settings-rc
 .PKGINFO
