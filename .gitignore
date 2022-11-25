@@ -13,6 +13,9 @@
 .config/htop
 .config/nitrogen
 .config/pulse
+.config/QtProject.conf
+.config/VirtualBox
+.config/fontforge
 .config/ranger/plugins
 .config/solaar
 .config/mimeapps.list
@@ -25,17 +28,23 @@
 .steam
 bevy
 bevy_ecs_tilemap
+cpp
 Downloads
+extension
+nerd-fonts
 old
 opt
 rustlings
+VirtualBox\ VMs
 vscode
 
 #Files
 .bash_history
 .bash_logout
 .bash_profile
+cpptools-linux.vsix
 .dmrc
+extension.vsixmanifest
 .gitconfig
 .INSTALL
 .lesshst

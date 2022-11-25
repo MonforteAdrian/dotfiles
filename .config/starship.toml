@@ -14,37 +14,38 @@ add_newline = false
 # [┌───────────────────>](bold green)
 # [│](bold green)$directory$rust$package
 # [└─>](bold green) """
+
+format = " $all"
 command_timeout = 5000
 
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
 
-# Dracula theme
-[aws]
-style = "bold #ffb86c"
-
 [character]
-error_symbol = "[➜](bold #ff5555)"
-success_symbol = "[➜](bold #50fa7b)"
-vicmd_symbol = "[λ](bold #bd93f9)"
+success_symbol = "[ ❯](bold green)"
+error_symbol = "[ ❯](bold red)"
+vimcmd_symbol = "[ ❮](bold blue)"
+vimcmd_replace_one_symbol = "[ ❮](bold red)"
+vimcmd_replace_symbol = "[ ❮](bold red)"
+vimcmd_visual_symbol = "[ ❮](bold yellow)"
 
 [cmd_duration]
 disabled = true
 
 [directory]
 truncation_length = 20
-style = "bold #bd93f9"
+style = "bold blue"
 
 [git_branch]
-style = "bold #ff79c6"
+symbol = " "
 
 [git_status]
-style = "bold #ff5555"
+style = "bold red"
 
 [hostname]
-style = "bold #bd93f9"
+style = "bold blue"
 
 [username]
 format = "[$user]($style) on "
-style_user = "bold #8be9fd"
+style_user = "bold cyan"
