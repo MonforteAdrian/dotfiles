@@ -248,14 +248,11 @@ schemes:
   ### One Dark ###
   DoomOne: &OneDark
     primary:
-      background: '#282c34'
+      background: '#282a36'
       foreground: '#abb2bf'
     cursor:
       text: CellBackground
       cursor: CellForeground
-    selection:
-      text: CellForeground
-      background: '#3e4451'
     normal:
       black:   '#181a1f'
       red:     '#e86671'
@@ -264,16 +261,16 @@ schemes:
       blue:    '#61afef'
       magenta: '#c678dd'
       cyan:    '#56b6c2'
-      white:   '#202328'
+      white:   '#ABB2BF'
     bright:
-      black:   '#5b6268'
-      red:     '#da8548'
-      green:   '#4db5bd'
-      yellow:  '#ecbe7b'
-      blue:    '#3071db'   # This is 2257a0 in Doom Emacs but I lightened it.
-      magenta: '#a9a1e1'
-      cyan:    '#46d9ff'
-      white:   '#dfdfdf'
+      black:   '#181a1f'
+      red:     '#e86671'
+      green:   '#98c379'
+      yellow:  '#e5c07b'
+      blue:    '#61afef'
+      magenta: '#c678dd'
+      cyan:    '#56b6c2'
+      white:   '#ABB2BF'
 
   ### Dracula ###
   Dracula: &Dracula
@@ -337,8 +334,8 @@ schemes:
 # *Dracula
 
 #colors: *DoomOne
-colors: *Dracula
-#colors: *OneDark
+#colors: *Dracula
+colors: *OneDark
 
 #######################################
 ##       END OF COLOR SCHEMES        ##

@@ -15,37 +15,72 @@ add_newline = false
 # [│](bold green)$directory$rust$package
 # [└─>](bold green) """
 
-format = " $all"
 command_timeout = 5000
 
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
 
-[character]
-success_symbol = "[ ❯](bold green)"
-error_symbol = "[ ❯](bold red)"
-vimcmd_symbol = "[ ❮](bold blue)"
-vimcmd_replace_one_symbol = "[ ❮](bold red)"
-vimcmd_replace_symbol = "[ ❮](bold red)"
-vimcmd_visual_symbol = "[ ❮](bold yellow)"
-
 [cmd_duration]
 disabled = true
 
+#OneDark
+[character]
+success_symbol = "[❯](bold #61afef)"
+error_symbol = "[❯](bold #e86671)"
+vimcmd_symbol = "[❮](bold #98c379)"
+vimcmd_replace_one_symbol = "[❮](bold #e86671)"
+vimcmd_replace_symbol = "[❮](bold #e86671)"
+vimcmd_visual_symbol = "[❮](bold #c678dd)"
+
 [directory]
 truncation_length = 20
-style = "bold blue"
+style = "bold #61afef"
 
 [git_branch]
 symbol = " "
+style = "bold #e5c07b"
 
 [git_status]
-style = "bold red"
+style = "bold #e86671"
 
-[hostname]
-style = "bold blue"
 
-[username]
-format = "[$user]($style) on "
-style_user = "bold cyan"
+##Dracula
+#[character]
+#success_symbol = "[❯](bold #50fa7b)"
+#error_symbol = "[❯](bold #ff5555)"
+#vimcmd_symbol = "[❮](bold #bd93f9)"
+#vimcmd_replace_one_symbol = "[❮](bold #ff5555)"
+#vimcmd_replace_symbol = "[❮](bold #ff5555)"
+#vimcmd_visual_symbol = "[❮](bold #f1fa8c)"
+#
+#[directory]
+#truncation_length = 20
+#style = "bold #bd93f9"
+#
+#[git_branch]
+#symbol = " "
+#style = "bold #ff79c6"
+#
+#[git_status]
+#style = "bold #ff5555"
+
+##DoomOne
+#[character]
+#success_symbol = "[❯](bold #98be65)"
+#error_symbol = "[❯](bold #ff6c6b)"
+#vimcmd_symbol = "[❮](bold #51afef)"
+#vimcmd_replace_one_symbol = "[❮](bold #ff6c6b)"
+#vimcmd_replace_symbol = "[❮](bold #ff6c6b)"
+#vimcmd_visual_symbol = "[❮](bold #a9a1e1)"
+#
+#[directory]
+#truncation_length = 20
+#style = "bold #51afef"
+#
+#[git_branch]
+#symbol = " "
+#style = "bold #da8548"
+#
+#[git_status]
+#style = "bold #ff6c6b"
