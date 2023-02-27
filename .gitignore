@@ -20,6 +20,7 @@
 .config/solaar
 .config/mimeapps.list
 .config/pavucontrol.ini
+.gnupg
 .local
 .npm
 .pki
