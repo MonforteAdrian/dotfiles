@@ -1,6 +1,6 @@
-[submodule "qmk_firmware"]
-	path = qmk_firmware
-  url = git@github.com:MonforteAdrian/qmk_firmware.git
+#[submodule "qmk_firmware"]
+#	path = qmk_firmware
+#  url = git@github.com:MonforteAdrian/qmk_firmware.git
 [submodule "vimwiki"]
 	path = vimwiki
 	url = git@github.com:MonforteAdrian/HoneyverseWiki.git
