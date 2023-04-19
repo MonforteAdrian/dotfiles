@@ -29,6 +29,7 @@
 .steam
 bevy
 bevy_ecs_tilemap
+bevy_mod_picking
 cpp
 Downloads
 extension
