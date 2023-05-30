@@ -4,6 +4,7 @@
 .cache
 .cargo
 .config/cef_user_data
+.config/Code
 .config/dconf
 .config/discord
 .config/GIMP
@@ -27,6 +28,7 @@
 .rustup
 .ssh
 .steam
+.vscode
 bevy
 bevy_ecs_tilemap
 bevy_mod_picking
@@ -37,6 +39,7 @@ nerd-fonts
 old
 opt
 rustlings
+rust_projects/little_projects/rustrogueliketutorial
 VirtualBox\ VMs
 vscode
 

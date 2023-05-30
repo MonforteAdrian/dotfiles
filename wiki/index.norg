@@ -1,16 +1,15 @@
 @document.meta
-  title: Wiki
-  description: This is a wiki about everything related to the honeyverse
-  author: Adrian Monforte
-  categories: Wiki
-  created: 2022-08-14
-  version: 0.0.12
+title: Wiki
+description: This is a wiki about everything related to the honeyverse
+author: Adrian Monforte
+categories: Wiki
+created: 2022-08-14
+version: 0.0.12
 @end
-
-= TOC Table of Contents
 
 * ToDo
   - [-] Universe
+  -- [-] *Language*
   -- [-] Canon
   -- [-] History
   -- [ ] Check google keep notes
@@ -19,7 +18,7 @@
   -- [x] templates for the Game
   -- [ ] pixel art for the Game
   -- [ ] Universe map
-  -- [ ] Planet map
+  -- [ ] *Planet map*
   - [-] [Game]{https://trello.com/b/1kP94Ame/mygame}
 
 * Notes
@@ -56,6 +55,7 @@
    - {:planet/fauna:}[Fauna]
 ** Nations
    - {:nations/nation_x:}[Nation template]
+   - {:nations/pirate_islands:}[Pirate islands]
    - {:nations/greeks:}[Greeks]
    - {:nations/romans:}[Romans]
    - {:nations/vikings:}[Vikings/Japan]
