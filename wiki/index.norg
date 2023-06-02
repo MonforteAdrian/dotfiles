@@ -59,6 +59,10 @@ version: 0.0.12
    - {:nations/greeks:}[Greeks]
    - {:nations/romans:}[Romans]
    - {:nations/vikings:}[Vikings/Japan]
+   - {:nations/atlantis:}[Atlantis]
+   - {:nations/egypt:}[Egypt]
+   - {:nations/medievo:}[Medievo]
+   - south area maybe(south america, africa, new zeland)
 ** History
    - {:history/compendium:}[Compendium]
    - {:history/age_0:}[Initial age]
