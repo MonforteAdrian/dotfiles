@@ -167,5 +167,5 @@ bar {
         status_command i3status
 }
 
-exec xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --left-of eDP-1-1
+exec xrandr --output eDP-1-1 --mode 1920x1080 --output HDMI-0 --auto --left-of eDP-1-1
 exec --no-startup-id find ~/wallpapers/ -type f | shuf -n 1 | xargs xwallpaper --stretch
