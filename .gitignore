@@ -9,9 +9,11 @@
 .config/discord
 .config/GIMP
 .config/google-chrome
+.config/GPlates
 .config/gtk-2.0
 .config/gtk-3.0
 .config/htop
+.config/menus
 .config/nitrogen
 .config/pulse
 .config/QtProject.conf
@@ -21,6 +23,7 @@
 .config/solaar
 .config/mimeapps.list
 .config/pavucontrol.ini
+.gnome
 .gnupg
 .local
 .npm
@@ -28,10 +31,12 @@
 .rustup
 .ssh
 .steam
+.vim
 .vscode
 bevy
 bevy_ecs_tilemap
 bevy_mod_picking
+bevy_sprite3d
 cpp
 Downloads
 extension
@@ -40,6 +45,7 @@ old
 opt
 rustlings
 rust_projects/little_projects/rustrogueliketutorial
+rust_projects/rust_the_complete_guide
 VirtualBox\ VMs
 vscode
 

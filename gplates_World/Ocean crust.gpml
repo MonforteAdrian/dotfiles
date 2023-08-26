@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpml:FeatureCollection xmlns:gpml="http://www.gplates.org/gplates" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/XMLSchema-instance" gpml:version="1.6.0339" xsi:schemaLocation="http://www.gplates.org/gplates ../xsd/gpml.xsd http://www.opengis.net/gml ../../../gml/current/base">
+    <gml:featureMember>
+        <gpml:OceanicCrust>
+            <gpml:identity>GPlates-f2234a5a-1774-4125-8aae-b6be479970bd</gpml:identity>
+            <gpml:revision>GPlates-7441752b-3749-4a66-aec2-5cdf79bac833</gpml:revision>
+            <gml:name>Ocean crust 950</gml:name>
+            <gml:validTime>
+                <gml:TimePeriod>
+                    <gml:begin>
+                        <gml:TimeInstant>
+                            <gml:timePosition gml:frame="http://gplates.org/TRS/flat">950</gml:timePosition>
+                        </gml:TimeInstant>
+                    </gml:begin>
+                    <gml:end>
+                        <gml:TimeInstant>
+                            <gml:timePosition gml:frame="http://gplates.org/TRS/flat">http://gplates.org/times/distantFuture</gml:timePosition>
+                        </gml:TimeInstant>
+                    </gml:end>
+                </gml:TimePeriod>
+            </gml:validTime>
+            <gpml:geometryImportTime>
+                <gml:TimeInstant>
+                    <gml:timePosition gml:frame="http://gplates.org/TRS/flat">948</gml:timePosition>
+                </gml:TimeInstant>
+            </gpml:geometryImportTime>
+            <gpml:reconstructionPlateId>
+                <gpml:ConstantValue>
+                    <gpml:value>100</gpml:value>
+                    <gml:description></gml:description>
+                    <gpml:valueType xmlns:gpml="http://www.gplates.org/gplates">gpml:plateId</gpml:valueType>
+                </gpml:ConstantValue>
+            </gpml:reconstructionPlateId>
+            <gpml:outlineOf>
+                <gpml:ConstantValue>
+                    <gpml:value>
+                        <gml:Polygon>
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList gml:dimension="2">-16.575880652722905 32.454325749000134 -13.628811558650469 30.088664510462515 -8.3916854638537188 30.027473711392673 -4.6171520618461557 30.84555410534616 -4.9787138383481135 27.579184096926369 -2.0534502179577117 24.453496972862286 -1.1856813439122362 19.764909330785297 3.3811138681469797 17.039141857639684 10.040708990649142 16.402644591561447 15.258104834764774 15.865623694835772 19.082425284757331 9.0839615568217784 17.302835113099864 3.6478415147702581 16.574527324395987 -1.4439264807951875 10.372564131881418 -13.620999879734253 10.869101882333528 -8.6080792777281268 12.533274953885382 -3.3015038801751624 8.6009150468937356 3.2331131701369733 3.3576537056787128 3.7419727841188806 -3.3007176225785066 4.343730936478714 -7.8706100379948563 7.0485806016987267 -8.7065924113452269 11.822448192426444 -11.643225589224778 14.915058042609338 -11.163731505947911 18.282260096057822 -14.990581939726788 17.487289390060209 -20.168716832501129 17.712834352540959 -23.076248557085734 20.154013001269554 -16.575880652722905 32.454325749000134 </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </gpml:value>
+                    <gml:description></gml:description>
+                    <gpml:valueType xmlns:gml="http://www.opengis.net/gml">gml:Polygon</gpml:valueType>
+                </gpml:ConstantValue>
+            </gpml:outlineOf>
+        </gpml:OceanicCrust>
+    </gml:featureMember>
+    <gml:featureMember>
+        <gpml:OceanicCrust>
+            <gpml:identity>GPlates-9c684b79-b43a-4c74-b468-59eec1ac5960</gpml:identity>
+            <gpml:revision>GPlates-7f8f0185-f9b2-4813-997e-3fd6c6449dbb</gpml:revision>
+            <gml:name>Ocean crust 950</gml:name>
+            <gml:validTime>
+                <gml:TimePeriod>
+                    <gml:begin>
+                        <gml:TimeInstant>
+                            <gml:timePosition gml:frame="http://gplates.org/TRS/flat">950</gml:timePosition>
+                        </gml:TimeInstant>
+                    </gml:begin>
+                    <gml:end>
+                        <gml:TimeInstant>
+                            <gml:timePosition gml:frame="http://gplates.org/TRS/flat">http://gplates.org/times/distantFuture</gml:timePosition>
+                        </gml:TimeInstant>
+                    </gml:end>
+                </gml:TimePeriod>
+            </gml:validTime>
+            <gpml:geometryImportTime>
+                <gml:TimeInstant>
+                    <gml:timePosition gml:frame="http://gplates.org/TRS/flat">948</gml:timePosition>
+                </gml:TimeInstant>
+            </gpml:geometryImportTime>
+            <gpml:reconstructionPlateId>
+                <gpml:ConstantValue>
+                    <gpml:value>300</gpml:value>
+                    <gml:description></gml:description>
+                    <gpml:valueType xmlns:gpml="http://www.gplates.org/gplates">gpml:plateId</gpml:valueType>
+                </gpml:ConstantValue>
+            </gpml:reconstructionPlateId>
+            <gpml:outlineOf>
+                <gpml:ConstantValue>
+                    <gpml:value>
+                        <gml:Polygon>
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList gml:dimension="2">-29.762313902221106 7.4388299144293883 -26.857606697459424 4.7834315882861524 -21.621624777317376 4.6464312618597869 -17.83640100948897 5.4554285689979096 -18.22497592719921 2.0356293175139202 -15.283910809852792 -1.2070600236897071 -14.317127546121371 -6.0346404383603014 -9.6553112396294125 -8.6510563529280837 -2.9750259434877298 -9.0042950965516475 2.2604032182309175 -9.2973945884517697 6.4570288040230057 -15.559720562256274 5.1071102269097928 -20.879444449269055 4.8759195761786103 -25.817602113263153 10.389915020222638 -13.594797671837993 10.92225351055863 -8.6047124542735727 12.541967012393483 -3.2567645492741266 8.6003471906017701 3.2872659947514666 3.3809674456627579 3.7419748052856256 -3.2783691378488808 4.3128536230689134 -7.8284967377647181 7.0158230700306552 -8.6976222915113777 11.770274766586271 -11.591286035490917 14.951242263139743 -11.18016218980816 18.291491178266618 -14.972263779164752 17.518864792999743 -20.202846570949259 17.685988596565931 -23.034905901521846 20.179976109085626 -29.762313902221106 7.4388299144293883 </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </gpml:value>
+                    <gml:description></gml:description>
+                    <gpml:valueType xmlns:gml="http://www.opengis.net/gml">gml:Polygon</gpml:valueType>
+                </gpml:ConstantValue>
+            </gpml:outlineOf>
+        </gpml:OceanicCrust>
+    </gml:featureMember>
+</gpml:FeatureCollection>
