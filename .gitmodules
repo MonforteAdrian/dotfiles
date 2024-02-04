@@ -10,6 +10,3 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:MonforteAdrian/nvim.git
-[submodule "zmk-config"]
-    path = zmk-config
-    url = git@github.com:MonforteAdrian/zmk-config.git
