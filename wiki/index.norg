@@ -17,8 +17,8 @@ version: 0.0.12
   - [-] Art
   -- [x] templates for the Game
   -- [ ] pixel art for the Game
-  -- [ ] Universe map
-  -- [ ] *Planet map*
+  -- [-] Universe map
+  -- [-] *Planet map*
   - [-] [Game]{https://trello.com/b/1kP94Ame/mygame}
 
 * Notes
