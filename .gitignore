@@ -13,7 +13,9 @@
 .config/gtk-2.0
 .config/gtk-3.0
 .config/htop
+.config/MControlCenter.conf
 .config/menus
+.config/neofetch
 .config/nitrogen
 .config/pulse
 .config/QtProject.conf
@@ -23,6 +25,8 @@
 .config/solaar
 .config/mimeapps.list
 .config/pavucontrol.ini
+.config/user-dirs.dirs
+.config/user-dirs.locale
 .gnome
 .gnupg
 .local
@@ -36,10 +40,12 @@
 bevy
 bevy_ecs_tilemap
 bevy_mod_picking
+bevy-fast-tilemap
 bevy_sprite3d
 cpp
 Downloads
 extension
+msi-fan-fix/
 nerd-fonts
 old
 opt
@@ -55,6 +61,7 @@ vscode
 .bash_profile
 cpptools-linux.vsix
 .dmrc
+.minirc.dfl
 extension.vsixmanifest
 .gitconfig
 .INSTALL
