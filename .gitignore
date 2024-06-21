@@ -3,6 +3,7 @@
 **/target
 .cache
 .cargo
+.config/aseprite
 .config/cef_user_data
 .config/Code
 .config/dconf
@@ -13,6 +14,7 @@
 .config/gtk-2.0
 .config/gtk-3.0
 .config/htop
+.config/lazygit
 .config/MControlCenter.conf
 .config/menus
 .config/neofetch
@@ -37,23 +39,13 @@
 .steam
 .vim
 .vscode
-bevy
-bevy_ecs_tilemap
-bevy_mod_picking
-bevy-fast-tilemap
-bevy_sprite3d
-cpp
+bevy_testing
 Downloads
 extension
-msi-fan-fix/
-nerd-fonts
-old
-opt
-rustlings
+facturasSyl
+msi-fan-fix
 rust_projects/little_projects/rustrogueliketutorial
 rust_projects/rust_the_complete_guide
-VirtualBox\ VMs
-vscode
 
 #Files
 .bash_history
