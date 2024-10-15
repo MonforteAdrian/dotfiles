@@ -1,0 +1,81 @@
+[package]
+name = "isometric"
+version = "0.1.0"
+edition = "2021"
+description = "Isometric tools"
+license = "MIT"
+repository = "github "
+keywords = ["iso", "tools", "gamedev"]
+categories = ["gamedev", "tools"]
+
+[features]
+## HL algoritms
+#algorithms = []
+# 3d Mesh features
+mesh = ["serde?/std"]
+## Grid management utilities
+#grid = []
+# repr C
+packed = []
+# serde compatibility
+serde = ["dep:serde", "glam/serde"]
+# Adds Bevy Reflection support
+bevy_reflect = ["dep:bevy_reflect"]
+
+[dependencies]
+glam = "0.27.0"
+bevy-inspector-egui = "0.24.0"
+
+[dependencies.serde]
+version = "1.0.201"
+default-features = false
+features = ["derive"]
+optional = true
+
+[dependencies.bevy_reflect]
+version = "0.14.0"
+default-features = false
+features = ["glam"]
+optional = true
+
+# For lib.rs doctests and examples
+[dev-dependencies.bevy]
+version = "0.14.0"
+features = [
+  "bevy_asset",
+  "bevy_winit",
+  "bevy_core_pipeline",
+  "bevy_pbr",
+  "bevy_render",
+  "bevy_sprite",
+  "bevy_text",
+  "default_font",
+  "png",
+  "x11",
+  "tonemapping_luts",
+  "bevy_gizmos",
+  # Faster compilation
+  "dynamic_linking",
+]
+default-features = false
+
+[dev-dependencies]
+rand = "0.8.5"
+bevy-inspector-egui = "0.24"
+bevy_egui = "0.27"
+approx = "0.5"
+
+[[example]]
+name = "iso_grid"
+path = "examples/iso_grid.rs"
+
+[[example]]
+name = "field_of_view"
+path = "examples/field_of_view.rs"
+
+[[example]]
+name = "field_of_movement"
+path = "examples/field_of_movement.rs"
+
+[profile.dev]
+opt-level = 1
