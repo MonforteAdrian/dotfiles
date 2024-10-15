@@ -1,25 +1,14 @@
-use super::Rect;
-use rltk::{Algorithm2D, BaseMap, Point, RandomNumberGenerator, Rltk, RGB};
+use rltk::{Algorithm2D, BaseMap, Point};
 use serde::{Deserialize, Serialize};
 use specs::prelude::*;
-use std::cmp::{max, min};
 use std::collections::HashSet;
 
-pub const MAP_WIDTH: usize = 80;
-pub const MAP_HEIGHT: usize = 43;
-pub const MAP_COUNT: usize = MAP_HEIGHT * MAP_WIDTH;
-
-#[derive(PartialEq, Copy, Clone, Serialize, Deserialize)]
-pub enum TileType {
-    Wall,
-    Floor,
-    DownStairs,
-}
+mod tiletype;
+pub use tiletype::*;
 
 #[derive(Default, Serialize, Deserialize, Clone)]
 pub struct Map {
     pub tiles: Vec<TileType>,
-    pub rooms: Vec<Rect>,
     pub width: i32,
     pub height: i32,
     pub revealed_tiles: Vec<bool>,
@@ -27,6 +16,7 @@ pub struct Map {
     pub blocked: Vec<bool>,
     pub depth: i32,
     pub bloodstains: HashSet<usize>,
+    pub view_blocked: HashSet<usize>,
 
     #[serde(skip_serializing)]
     #[serde(skip_deserializing)]
@@ -36,33 +26,6 @@ pub struct Map {
 impl Map {
     pub fn xy_idx(&self, x: i32, y: i32) -> usize {
         (y as usize * self.width as usize) + x as usize
-    }
-
-    fn apply_room_to_map(&mut self, room: &Rect) {
-        for y in room.y1 + 1..=room.y2 {
-            for x in room.x1 + 1..=room.x2 {
-                let idx = self.xy_idx(x, y);
-                self.tiles[idx] = TileType::Floor;
-            }
-        }
-    }
-
-    fn apply_horizontal_tunnel(&mut self, x1: i32, x2: i32, y: i32) {
-        for x in min(x1, x2)..=max(x1, x2) {
-            let idx = self.xy_idx(x, y);
-            if idx > 0 && idx < self.width as usize * self.height as usize {
-                self.tiles[idx as usize] = TileType::Floor;
-            }
-        }
-    }
-
-    fn apply_vertical_tunnel(&mut self, y1: i32, y2: i32, x: i32) {
-        for y in min(y1, y2)..=max(y1, y2) {
-            let idx = self.xy_idx(x, y);
-            if idx > 0 && idx < self.width as usize * self.height as usize {
-                self.tiles[idx as usize] = TileType::Floor;
-            }
-        }
     }
 
     fn is_exit_valid(&self, x: i32, y: i32) -> bool {
@@ -75,7 +38,7 @@ impl Map {
 
     pub fn populate_blocked(&mut self) {
         for (i, tile) in self.tiles.iter_mut().enumerate() {
-            self.blocked[i] = *tile == TileType::Wall;
+            self.blocked[i] = !tile_walkable(*tile);
         }
     }
 
@@ -85,70 +48,32 @@ impl Map {
         }
     }
 
-    /// Makes a new map using the algorithm from http://rogueliketutorials.com/tutorials/tcod/part-3/
-    /// This gives a handful of random rooms and corridors joining them together.
-    pub fn new_map_rooms_and_corridors(new_depth: i32) -> Map {
-        let mut map = Map {
-            tiles: vec![TileType::Wall; MAP_COUNT],
-            rooms: Vec::new(),
-            width: MAP_WIDTH as i32,
-            height: MAP_HEIGHT as i32,
-            revealed_tiles: vec![false; MAP_COUNT],
-            visible_tiles: vec![false; MAP_COUNT],
-            blocked: vec![false; MAP_COUNT],
-            tile_content: vec![Vec::new(); MAP_COUNT],
+    /// Generates an empty map, consisting entirely of solid walls
+    pub fn new(new_depth: i32, width: i32, height: i32) -> Map {
+        let map_tile_count = (width * height) as usize;
+        Map {
+            tiles: vec![TileType::Wall; map_tile_count],
+            width,
+            height,
+            revealed_tiles: vec![false; map_tile_count],
+            visible_tiles: vec![false; map_tile_count],
+            blocked: vec![false; map_tile_count],
+            tile_content: vec![Vec::new(); map_tile_count],
             depth: new_depth,
             bloodstains: HashSet::new(),
-        };
-
-        const MAX_ROOMS: i32 = 30;
-        const MIN_SIZE: i32 = 6;
-        const MAX_SIZE: i32 = 10;
-
-        let mut rng = RandomNumberGenerator::new();
-
-        for _i in 0..MAX_ROOMS {
-            let w = rng.range(MIN_SIZE, MAX_SIZE);
-            let h = rng.range(MIN_SIZE, MAX_SIZE);
-            let x = rng.roll_dice(1, map.width - w - 1) - 1;
-            let y = rng.roll_dice(1, map.height - h - 1) - 1;
-            let new_room = Rect::new(x, y, w, h);
-            let mut ok = true;
-            for other_room in map.rooms.iter() {
-                if new_room.intersect(other_room) {
-                    ok = false
-                }
-            }
-            if ok {
-                map.apply_room_to_map(&new_room);
-
-                if !map.rooms.is_empty() {
-                    let (new_x, new_y) = new_room.center();
-                    let (prev_x, prev_y) = map.rooms[map.rooms.len() - 1].center();
-                    if rng.range(0, 2) == 1 {
-                        map.apply_horizontal_tunnel(prev_x, new_x, prev_y);
-                        map.apply_vertical_tunnel(prev_y, new_y, new_x);
-                    } else {
-                        map.apply_vertical_tunnel(prev_y, new_y, prev_x);
-                        map.apply_horizontal_tunnel(prev_x, new_x, new_y);
-                    }
-                }
-
-                map.rooms.push(new_room);
-            }
+            view_blocked: HashSet::new(),
         }
-
-        let stairs_position = map.rooms[map.rooms.len() - 1].center();
-        let stairs_idx = map.xy_idx(stairs_position.0, stairs_position.1);
-        map.tiles[stairs_idx] = TileType::DownStairs;
-
-        map
     }
 }
 
 impl BaseMap for Map {
     fn is_opaque(&self, idx: usize) -> bool {
-        self.tiles[idx] == TileType::Wall
+        let idx_u = idx;
+        if idx_u > 0 && idx_u < self.tiles.len() {
+            tile_opaque(self.tiles[idx_u]) || self.view_blocked.contains(&idx_u)
+        } else {
+            true
+        }
     }
 
     fn get_pathing_distance(&self, idx1: usize, idx2: usize) -> f32 {
@@ -159,37 +84,39 @@ impl BaseMap for Map {
     }
 
     fn get_available_exits(&self, idx: usize) -> rltk::SmallVec<[(usize, f32); 10]> {
+        const DIAGONAL_COST: f32 = 1.5;
         let mut exits = rltk::SmallVec::new();
         let x = idx as i32 % self.width;
         let y = idx as i32 / self.width;
+        let tt = self.tiles[idx as usize];
         let w = self.width as usize;
 
         // Cardinal directions
         if self.is_exit_valid(x - 1, y) {
-            exits.push((idx - 1, 1.0))
+            exits.push((idx - 1, tile_cost(tt)))
         };
         if self.is_exit_valid(x + 1, y) {
-            exits.push((idx + 1, 1.0))
+            exits.push((idx + 1, tile_cost(tt)))
         };
         if self.is_exit_valid(x, y - 1) {
-            exits.push((idx - w, 1.0))
+            exits.push((idx - w, tile_cost(tt)))
         };
         if self.is_exit_valid(x, y + 1) {
-            exits.push((idx + w, 1.0))
+            exits.push((idx + w, tile_cost(tt)))
         };
 
         // Diagonals
         if self.is_exit_valid(x - 1, y - 1) {
-            exits.push(((idx - w) - 1, 1.45));
+            exits.push(((idx - w) - 1, tile_cost(tt) * DIAGONAL_COST));
         }
         if self.is_exit_valid(x + 1, y - 1) {
-            exits.push(((idx - w) + 1, 1.45));
+            exits.push(((idx - w) + 1, tile_cost(tt) * DIAGONAL_COST));
         }
         if self.is_exit_valid(x - 1, y + 1) {
-            exits.push(((idx + w) - 1, 1.45));
+            exits.push(((idx + w) - 1, tile_cost(tt) * DIAGONAL_COST));
         }
         if self.is_exit_valid(x + 1, y + 1) {
-            exits.push(((idx + w) + 1, 1.45));
+            exits.push(((idx + w) + 1, tile_cost(tt) * DIAGONAL_COST));
         }
 
         exits
@@ -200,94 +127,4 @@ impl Algorithm2D for Map {
     fn dimensions(&self) -> Point {
         Point::new(self.width, self.height)
     }
-}
-
-pub fn draw_map(ecs: &World, ctx: &mut Rltk) {
-    let map = ecs.fetch::<Map>();
-
-    let mut y = 0;
-    let mut x = 0;
-    for (idx, tile) in map.tiles.iter().enumerate() {
-        // Render a tile depending upon the tile type
-
-        if map.revealed_tiles[idx] {
-            let glyph;
-            let mut fg;
-            let mut bg = RGB::from_f32(0., 0., 0.);
-            match tile {
-                TileType::Floor => {
-                    glyph = rltk::to_cp437('.');
-                    fg = RGB::from_f32(0.0, 0.5, 0.5);
-                }
-                TileType::Wall => {
-                    glyph = wall_glyph(&*map, x, y);
-                    fg = RGB::from_f32(0., 1.0, 0.);
-                }
-                TileType::DownStairs => {
-                    glyph = rltk::to_cp437('>');
-                    fg = RGB::from_f32(0., 1.0, 1.0);
-                }
-            }
-            if map.bloodstains.contains(&idx) {
-                bg = RGB::from_f32(0.75, 0., 0.);
-            }
-            if !map.visible_tiles[idx] {
-                fg = fg.to_greyscale();
-                bg = RGB::from_f32(0., 0., 0.); // Don't show strains out of visual range
-            }
-            ctx.set(x, y, fg, bg, glyph);
-        }
-
-        // Move the coordinates
-        x += 1;
-        if x > MAP_WIDTH as i32 - 1 {
-            x = 0;
-            y += 1;
-        }
-    }
-}
-
-fn wall_glyph(map: &Map, x: i32, y: i32) -> rltk::FontCharType {
-    if x < 1 || x > map.width - 2 || y < 1 || y > map.height - 2 as i32 {
-        return 35;
-    }
-    let mut mask: u8 = 0;
-
-    if is_revealed_and_wall(map, x, y - 1) {
-        mask += 1;
-    }
-    if is_revealed_and_wall(map, x, y + 1) {
-        mask += 2;
-    }
-    if is_revealed_and_wall(map, x - 1, y) {
-        mask += 4;
-    }
-    if is_revealed_and_wall(map, x + 1, y) {
-        mask += 8;
-    }
-
-    match mask {
-        0 => 9,    // Pillar because we can't see neighbors
-        1 => 186,  // Wall only to the north
-        2 => 186,  // Wall only to the south
-        3 => 186,  // Wall to the north and south
-        4 => 205,  // Wall only to the west
-        5 => 188,  // Wall to the north and west
-        6 => 187,  // Wall to the south and west
-        7 => 185,  // Wall to the north, south and west
-        8 => 205,  // Wall only to the east
-        9 => 200,  // Wall to the north and east
-        10 => 201, // Wall to the south and east
-        11 => 204, // Wall to the north, south and east
-        12 => 205, // Wall to the east and west
-        13 => 202, // Wall to the east, west, and south
-        14 => 203, // Wall to the east, west, and north
-        15 => 206, // ╬ Wall on all sides
-        _ => 35,   // We missed one?
-    }
-}
-
-fn is_revealed_and_wall(map: &Map, x: i32, y: i32) -> bool {
-    let idx = map.xy_idx(x, y);
-    map.tiles[idx] == TileType::Wall && map.revealed_tiles[idx]
 }
