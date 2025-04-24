@@ -1,9 +1,9 @@
-import = [
-  # uncomment the flavour you want below:
-  # "~/.config/alacritty/catppuccin/catppuccin-mocha.toml"
-  "~/.config/alacritty/catppuccin/catppuccin-macchiato.toml"
-  # "~/.config/alacritty/catppuccin/catppuccin-frappe.toml"
-  # "~/.config/alacritty/catppuccin/catppuccin-latte.toml"
+general.import = [
+    # uncomment the flavour you want below:
+    # "~/.config/alacritty/catppuccin/catppuccin-mocha.toml"
+    "~/.config/alacritty/catppuccin/catppuccin-macchiato.toml",
+    # "~/.config/alacritty/catppuccin/catppuccin-frappe.toml"
+    # "~/.config/alacritty/catppuccin/catppuccin-latte.toml"
 ]
 
 [colors]
@@ -22,18 +22,21 @@ general = "Alacritty"
 instance = "Alacritty"
 
 [font]
-size = 7.5
+size = 8.5
 
 [font.bold]
-family = "Source Code Pro"
+#family = "Source Code Pro"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "Source Code Pro"
+#family = "Source Code Pro"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "Source Code Pro"
+#family = "Source Code Pro"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
