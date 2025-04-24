@@ -234,9 +234,21 @@ impl Div<Self> for Iso {
     #[inline]
     fn div(self, rhs: Self) -> Self::Output {
         Self {
-            x: self.x.div(rhs.x),
-            y: self.y.div(rhs.y),
-            z: self.z.div(rhs.z),
+            x: if rhs.x == 0 {
+                self.x.div(rhs.x)
+            } else {
+                self.x
+            },
+            y: if rhs.y == 0 {
+                self.y.div(rhs.y)
+            } else {
+                self.y
+            },
+            z: if rhs.z == 0 {
+                self.z.div(rhs.z)
+            } else {
+                self.z
+            },
         }
     }
 }

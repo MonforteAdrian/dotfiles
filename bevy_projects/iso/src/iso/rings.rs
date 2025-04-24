@@ -1,74 +1,48 @@
 use super::{iter::ExactSizeIsoIterator, EdgeDirection, Iso, VertexDirection};
+use std::collections::HashSet;
 
 impl Iso {
     #[must_use]
     #[allow(clippy::cast_possible_wrap)]
     #[allow(clippy::missing_panics_doc)]
     /// Retrieves one [`Iso`] ring around `self` in a given `range`.
-    /// The returned coordinates start from `start_dir` and loop counter
-    /// clockwise around `self` unless `clockwise` is set to `true`.
-    ///
-    /// > If you only need the coordinates see [`Self::ring`]
-    ///
-    /// # Note
-    /// The returned iterator will have `4 * range` ([`Self::ring_count`])
-    /// items, unless `range` is 0 which will return `self`
     pub fn custom_ring(
         self,
         range: u32,
         start_dir: EdgeDirection,
-        clockwise: bool,
     ) -> impl ExactSizeIterator<Item = Self> {
-        let mut directions = vec![Self::ZERO];
-        if range > 0 {
-            let neighbors = Self::NEIGHBORS_COORDS;
-            directions.extend(
-                neighbors
-                    .into_iter()
-                    .flat_map(|dir| (0..range * 2).map(move |_| dir)),
-            );
-            if clockwise {
-                directions.rotate_left(1);
-            } else {
-                directions.reverse();
+        let mut points = Vec::new();
+        if range == 0 {
+            points.push(Self { x: 0, y: 0, z: 0 });
+        } else {
+            let mut angle = 0.0;
+            let step = 1.0 / (range as f64 * std::f64::consts::PI); // Step for angle increment
+            while angle < 2.0 * std::f64::consts::PI {
+                let x = (range as f64 * angle.cos()).round() as i32;
+                let y = (range as f64 * angle.sin()).round() as i32;
+                let z = 0;
+                let position = Self { x, y, z };
+                if !points.contains(&position) {
+                    points.push(position);
+                }
+                angle += step;
             }
-            // Put the first one last
-            directions.rotate_left(range.try_into().unwrap());
-        };
-        let count = Self::ring_count(range * 2) + 1;
-        let point = self + start_dir * range as i32;
-        let iter = (0..count).scan(point, move |point, i| {
-            *point += directions[i];
-            Some(*point)
-        });
-        ExactSizeIsoIterator { iter, count }
+        }
+
+        points.into_iter()
     }
 
     #[must_use]
     /// Retrieves one [`Iso`] ring around `self` in a given `range`.
-    /// The returned coordinates start from [`EdgeDirection::default`]
-    /// and loop around `self` counter clockwise.
-    ///
-    /// > See [`Self::custom_ring`] for more options.
-    ///
-    /// # Note
-    /// The returned iterator will have `4 * range` ([`Self::ring_count`])
-    /// items, unless `range` is 0 which will return `self`
     pub fn ring(self, range: u32) -> impl ExactSizeIterator<Item = Self> {
-        self.custom_ring(range, EdgeDirection::default(), false)
+        self.custom_ring(range, EdgeDirection::default())
     }
 
     /// Retrieves `range` [`Iso`] rings around `self` in a given `range`.
-    /// The returned coordinates start from [`EdgeDirection::default`]
-    /// and loop around `self` counter clockwise.
-    ///
-    /// See [`Self::custom_rings`] for more options.
-    /// If you only need the coordinates see [`Self::spiral_range`].
     ///
     /// # Example
     ///
     /// ```rust
-    /// # use hexx::*;
     /// let rings: Vec<Vec<Iso>> = Iso::ZERO.rings(3..10).collect();
     /// assert_eq!(rings.len(), 7);
     /// ```
@@ -77,18 +51,12 @@ impl Iso {
     }
 
     /// Retrieves `range` [`Iso`] rings around `self` in a given `range`.
-    /// The returned coordinates start from `start_dir` and loop around `self`
-    /// counter clockwise unless `clockwise` is set to true.
-    ///
-    /// If you only need the coordinates see [`Self::spiral_range`] or
-    /// [`Self::rings`].
     ///
     /// # Example
     ///
     /// ```rust
-    /// # use hexx::*;
     /// let rings: Vec<Vec<Iso>> = Iso::ZERO
-    ///     .custom_rings(3..10, EdgeDirection::FLAT_TOP, true)
+    ///     .custom_rings(3..10, EdgeDirection::FLAT_TOP)
     ///     .collect();
     /// assert_eq!(rings.len(), 7);
     /// ```
@@ -96,9 +64,8 @@ impl Iso {
         self,
         range: impl Iterator<Item = u32>,
         start_dir: EdgeDirection,
-        clockwise: bool,
     ) -> impl Iterator<Item = Vec<Self>> {
-        range.map(move |r| self.custom_ring(r, start_dir, clockwise).collect())
+        range.map(move |r| self.custom_ring(r, start_dir).collect())
     }
 
     #[must_use]
@@ -500,9 +467,8 @@ impl Iso {
     pub fn cached_custom_rings<const RANGE: usize>(
         self,
         start_dir: EdgeDirection,
-        clockwise: bool,
     ) -> [Vec<Self>; RANGE] {
-        std::array::from_fn(|r| self.custom_ring(r as u32, start_dir, clockwise).collect())
+        std::array::from_fn(|r| self.custom_ring(r as u32, start_dir).collect())
     }
 
     /// Retrieves all [`Iso`] around `self` in a given `range` but ordered as
@@ -517,9 +483,8 @@ impl Iso {
         self,
         range: impl Iterator<Item = u32>,
         start_dir: EdgeDirection,
-        clockwise: bool,
     ) -> impl Iterator<Item = Self> {
-        self.custom_rings(range, start_dir, clockwise).flatten()
+        self.custom_rings(range, start_dir).flatten()
     }
 
     /// Retrieves all [`Iso`] around `self` in a given `range` but ordered as
@@ -531,17 +496,6 @@ impl Iso {
     /// See this [article](https://www.redblobgames.com/grids/hexagons/#rings-spiral) for more
     /// information
     pub fn spiral_range(self, range: impl Iterator<Item = u32>) -> impl Iterator<Item = Self> {
-        self.custom_spiral_range(range, EdgeDirection::default(), false)
-    }
-
-    #[inline]
-    #[must_use]
-    /// Counts how many coordinates there are in a ring at the given `range`
-    pub const fn ring_count(range: u32) -> usize {
-        if range == 0 {
-            1
-        } else {
-            4 * range as usize
-        }
+        self.custom_spiral_range(range, EdgeDirection::default())
     }
 }

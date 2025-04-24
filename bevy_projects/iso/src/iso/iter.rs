@@ -1,4 +1,4 @@
-use crate::{Iso, IsoBounds};
+use crate::Iso;
 
 /// Extension trait for iterators of [`Iso`]
 pub trait IsoIterExt: Iterator {
@@ -15,35 +15,6 @@ pub trait IsoIterExt: Iterator {
     /// ```
     #[doc(alias = "mean")]
     fn average(self) -> Iso;
-
-    /// Method which takes an iterator and finds the center (centroid) value.
-    ///
-    /// This method will return [`Iso::ZERO`] on an empty iterator
-    ///
-    /// # Example
-    ///
-    /// ```rust
-    /// # use hexx::*;
-    /// let center = Iso::ZERO.range(10).center();
-    /// assert_eq!(center, Iso::ZERO);
-    /// ```
-    #[doc(alias = "centroid")]
-    fn center(self) -> Iso;
-
-    /// Method which takes an iterator and finds the bounds containing all
-    /// elements.
-    ///
-    /// This method will return ([`Iso::ZERO`], 0) on an empty iterator
-    ///
-    /// # Example
-    ///
-    /// ```rust
-    /// # use hexx::*;
-    /// let bounds = Iso::ZERO.range(10).bounds();
-    /// assert_eq!(bounds.center, Iso::ZERO);
-    /// assert_eq!(bounds.radius, 10);
-    /// ```
-    fn bounds(self) -> IsoBounds;
 }
 
 impl<I: Iterator<Item = Iso>> IsoIterExt for I {
@@ -57,14 +28,6 @@ impl<I: Iterator<Item = Iso>> IsoIterExt for I {
         }
         // Avoid division by zero
         sum / count.max(1)
-    }
-
-    fn center(self) -> Iso {
-        self.bounds().center
-    }
-
-    fn bounds(self) -> IsoBounds {
-        self.collect()
     }
 }
 

@@ -80,3 +80,9 @@ extension.vsixmanifest
 .minecraft
 .mozilla/firefox
 Documents/curseforge/minecraft
+.config/ow-electron/cfiahnpaolfnlgaihhmobmnjdafknjnjdpdabpcm
+.config/probe-rs-tools
+bevy_projects/iso/flamegraph.svg
+bevy_projects/iso/perf.data
+bevy_projects/iso/perf.data.old
+.config/zellij/config.kdl.bak

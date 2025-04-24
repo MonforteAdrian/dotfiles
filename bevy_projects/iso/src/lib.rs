@@ -213,8 +213,6 @@
 #![allow(clippy::module_name_repetitions, clippy::multiple_crate_versions)]
 /// Non exhaustive collection of classic algorithms.
 pub mod algorithms;
-/// Hexagonal range bounds module
-pub mod bounds;
 /// Hexagonal coordinates conversion module
 //pub mod conversions;
 /// Hexagonal directions module
@@ -228,8 +226,6 @@ pub mod mapping;
 /// Hexagon oritentation module
 pub mod tile_type;
 
-#[doc(inline)]
-pub use bounds::IsoBounds;
 #[doc(inline)]
 pub use direction::*;
 #[doc(hidden)]

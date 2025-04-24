@@ -8,9 +8,8 @@ use bevy::{
 use glam::uvec2;
 use isometric::{algorithms::range_fov, *};
 
-const TILE_SIZE: Vec2 = Vec2::splat(64.0);
+const TILE_SIZE: Vec2 = Vec2::splat(16.0);
 const CHUNK_SIZE: Vec2 = Vec2::new(TILE_SIZE.x * 12.0, TILE_SIZE.y * 3.0);
-const FOV_RADIUS: u32 = 3;
 
 pub fn main() {
     App::new()
@@ -80,12 +79,13 @@ fn setup_grid(
         .map(|(i, tile)| {
             let pos = layout.tile_to_world_pos(tile);
 
-            let index = if i % 11 == 0 {
-                blocked_coords.insert(tile);
-                1
-            } else {
-                0
-            };
+            let index = 0;
+            //let index = if i % 11 == 0 {
+            //    blocked_coords.insert(tile);
+            //    1
+            //} else {
+            //    0
+            //};
             let entity = commands
                 .spawn((
                     SpriteBundle {
@@ -169,9 +169,8 @@ fn handle_input(
             };
             atlas.index = 0;
         }
-        // TODO the block tiles doesn't block if diagonal fix it
-        let fov = range_fov(*tile_pos, FOV_RADIUS, |h| {
-            grid.blocked_coords.contains(&h) || h.ulength() > 10
+        let fov = range_fov(*tile_pos, (tile_pos.y + 50) as u32, |h| {
+            grid.blocked_coords.contains(&h)
         });
         let entities: HashSet<_> = fov
             .into_iter()

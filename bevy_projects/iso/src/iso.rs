@@ -7,14 +7,17 @@ mod impls;
 mod iter;
 /// Hex ring utils
 mod rings;
+mod tests;
 
 pub(crate) use iter::ExactSizeIsoIterator;
 pub use iter::IsoIterExt;
 
 use crate::direction::{way::DirectionWay, EdgeDirection, VertexDirection};
 use glam::{IVec2, IVec3, Vec2, Vec3};
+use std::time::Instant;
 use std::{
     cmp::{max, min},
+    collections::HashSet,
     fmt::Debug,
 };
 
@@ -845,6 +848,7 @@ impl Iso {
     }
 
     #[allow(clippy::cast_precision_loss)]
+    #[allow(clippy::cast_sign_loss)]
     #[must_use]
     /// Computes all coordinates in a line from `self` to `other`.
     ///
@@ -860,13 +864,55 @@ impl Iso {
     /// assert_eq!(line.len(), 6);
     /// ````
     pub fn line_to(self, other: Self) -> impl ExactSizeIterator<Item = Self> {
-        let distance = self.unsigned_distance_to(other);
-        let dist = distance.max(1) as f32;
-        let [a, b]: [Vec3; 2] = [self.as_vec3(), other.as_vec3()];
-        ExactSizeIsoIterator {
-            iter: (0..=distance).map(move |step| a.lerp(b, step as f32 / dist).into()),
-            count: distance as usize + 1,
-        }
+        let d = other - self;
+        let n = d.abs();
+        let sign = d.signum();
+
+        let count = (n.x.max(n.y) + 1) as usize;
+        let mut p = self;
+
+        let mut ix = 0;
+        let mut iy = 0;
+        let iter = std::iter::once(p).chain(std::iter::from_fn(move || {
+            if ix >= n.x && iy >= n.y {
+                return None;
+            }
+            if (ix * n.y + n.y / 2) < (iy * n.x + n.x / 2) {
+                // next step is horizontal
+                p.x += sign.x;
+                ix += 1;
+            } else {
+                // next step is vertical
+                p.y += sign.y;
+                iy += 1;
+            }
+            Some(p)
+        }));
+        ExactSizeIsoIterator { iter, count }
+
+        // TODO
+        //let mut positions = HashSet::new();
+        //let mut p = self;
+        //positions.insert(p);
+
+        //let mut ix = 0;
+        //let mut iy = 0;
+        //while ix < n.x || iy < n.y {
+        //    if (ix * n.y + n.y / 2) < (iy * n.x + n.x / 2) {
+        //        // next step is horizontal
+        //        p.x += sign.x;
+        //        ix += 1;
+        //    } else {
+        //        // next step is vertical
+        //        p.y += sign.y;
+        //        iy += 1;
+        //    }
+        //    positions.insert(p);
+        //}
+        //ExactSizeIsoIterator {
+        //    count: positions.len(),
+        //    iter: positions.into_iter(),
+        //}
     }
 
     #[allow(clippy::cast_sign_loss)]

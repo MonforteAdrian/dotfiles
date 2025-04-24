@@ -2,9 +2,6 @@
 mod edge_direction;
 /// Trait implementations
 mod impls;
-/// Test module
-#[cfg(test)]
-mod tests;
 /// Isometric vertex/diagonal directions
 mod vertex_direction;
 /// Direction way module
