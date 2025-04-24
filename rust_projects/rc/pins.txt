@@ -1,0 +1,6 @@
+P0_00 SOUND?
+P0_01 SERVO
+    // Aprox
+    //looking right 2500 - 44
+    //looking left 2500 - 330
+    //looking straight 2500 - 240

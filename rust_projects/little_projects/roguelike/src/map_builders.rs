@@ -1,15 +1,22 @@
 use super::{spawner, Map, Position, Rect, TileType, SHOW_MAPGEN_VISUALIZER};
 use specs::prelude::*;
+mod abyss;
+mod area_ending_point;
 mod area_starting_points;
 mod bsp_dungeon;
 mod bsp_interior;
 mod cellular_automata;
 mod common;
 mod cull_unreachable;
+mod dark_elves;
 mod distant_exit;
 mod dla;
+use abyss::*;
 mod door_placement;
 mod drunkard;
+mod dwarf_fort_builder;
+mod forest;
+mod limestone_cavern;
 mod maze;
 mod prefab_builder;
 mod room_based_spawner;
@@ -19,6 +26,7 @@ mod room_corner_rounding;
 mod room_corridor_spawner;
 mod room_draw;
 mod room_exploder;
+use dark_elves::*;
 mod room_sorter;
 mod rooms_corridors_bsp;
 mod rooms_corridors_dogleg;
@@ -29,6 +37,7 @@ mod town;
 mod voronoi;
 mod voronoi_spawning;
 mod waveform_collapse;
+use area_ending_point::*;
 use area_starting_points::{AreaStartingPosition, XStart, YStart};
 use bsp_dungeon::BspDungeonBuilder;
 use bsp_interior::BspInteriorBuilder;
@@ -39,6 +48,9 @@ use distant_exit::DistantExit;
 use dla::DLABuilder;
 use door_placement::DoorPlacement;
 use drunkard::DrunkardsWalkBuilder;
+use dwarf_fort_builder::*;
+use forest::forest_builder;
+use limestone_cavern::*;
 use maze::MazeBuilder;
 use prefab_builder::PrefabBuilder;
 use room_based_spawner::RoomBasedSpawner;
@@ -54,10 +66,12 @@ use rooms_corridors_dogleg::DoglegCorridors;
 use rooms_corridors_lines::StraightLineCorridors;
 use rooms_corridors_nearest::NearestCorridors;
 use simple_map::SimpleMapBuilder;
-use town::*;
+use town::town_builder;
 use voronoi::VoronoiCellBuilder;
 use voronoi_spawning::VoronoiSpawning;
 use waveform_collapse::WaveformCollapseBuilder;
+mod mushroom_forest;
+use mushroom_forest::*;
 
 pub struct BuilderMap {
     pub spawn_list: Vec<(usize, String)>,
@@ -89,13 +103,13 @@ pub struct BuilderChain {
 }
 
 impl BuilderChain {
-    pub fn new(new_depth: i32, width: i32, height: i32) -> BuilderChain {
+    pub fn new<S: ToString>(new_depth: i32, width: i32, height: i32, name: S) -> BuilderChain {
         BuilderChain {
             starter: None,
             builders: Vec::new(),
             build_data: BuilderMap {
                 spawn_list: Vec::new(),
-                map: Map::new(new_depth, width, height),
+                map: Map::new(new_depth, width, height, name),
                 starting_position: None,
                 rooms: None,
                 corridors: None,
@@ -117,18 +131,18 @@ impl BuilderChain {
         self.builders.push(metabuilder);
     }
 
-    pub fn build_map(&mut self, rng: &mut rltk::RandomNumberGenerator) {
+    pub fn build_map(&mut self) {
         match &mut self.starter {
             None => panic!("Cannot run a map builder chain without a starting build system"),
             Some(starter) => {
                 // Build the starting map
-                starter.build_map(rng, &mut self.build_data);
+                starter.build_map(&mut self.build_data);
             }
         }
 
         // Build additional layers in turn
         for metabuilder in self.builders.iter_mut() {
-            metabuilder.build_map(rng, &mut self.build_data);
+            metabuilder.build_map(&mut self.build_data);
         }
     }
 
@@ -140,16 +154,16 @@ impl BuilderChain {
 }
 
 pub trait InitialMapBuilder {
-    fn build_map(&mut self, rng: &mut rltk::RandomNumberGenerator, build_data: &mut BuilderMap);
+    fn build_map(&mut self, build_data: &mut BuilderMap);
 }
 
 pub trait MetaMapBuilder {
-    fn build_map(&mut self, rng: &mut rltk::RandomNumberGenerator, build_data: &mut BuilderMap);
+    fn build_map(&mut self, build_data: &mut BuilderMap);
 }
 
-fn random_start_position(rng: &mut rltk::RandomNumberGenerator) -> (XStart, YStart) {
+fn random_start_position() -> (XStart, YStart) {
     let x;
-    let xroll = rng.roll_dice(1, 3);
+    let xroll = crate::rng::roll_dice(1, 3);
     match xroll {
         1 => x = XStart::LEFT,
         2 => x = XStart::CENTER,
@@ -157,7 +171,7 @@ fn random_start_position(rng: &mut rltk::RandomNumberGenerator) -> (XStart, YSta
     }
 
     let y;
-    let yroll = rng.roll_dice(1, 3);
+    let yroll = crate::rng::roll_dice(1, 3);
     match yroll {
         1 => y = YStart::BOTTOM,
         2 => y = YStart::CENTER,
@@ -167,8 +181,8 @@ fn random_start_position(rng: &mut rltk::RandomNumberGenerator) -> (XStart, YSta
     (x, y)
 }
 
-fn random_room_builder(rng: &mut rltk::RandomNumberGenerator, builder: &mut BuilderChain) {
-    let build_roll = rng.roll_dice(1, 3);
+fn random_room_builder(builder: &mut BuilderChain) {
+    let build_roll = crate::rng::roll_dice(1, 3);
     match build_roll {
         1 => builder.start_with(SimpleMapBuilder::new()),
         2 => builder.start_with(BspDungeonBuilder::new()),
@@ -178,7 +192,7 @@ fn random_room_builder(rng: &mut rltk::RandomNumberGenerator, builder: &mut Buil
     // BSP Interior still makes holes in the walls
     if build_roll != 3 {
         // Sort by one of the 5 available algorithms
-        let sort_roll = rng.roll_dice(1, 5);
+        let sort_roll = crate::rng::roll_dice(1, 5);
         match sort_roll {
             1 => builder.with(RoomSorter::new(RoomSort::LEFTMOST)),
             2 => builder.with(RoomSorter::new(RoomSort::RIGHTMOST)),
@@ -189,7 +203,7 @@ fn random_room_builder(rng: &mut rltk::RandomNumberGenerator, builder: &mut Buil
 
         builder.with(RoomDrawer::new());
 
-        let corridor_roll = rng.roll_dice(1, 4);
+        let corridor_roll = crate::rng::roll_dice(1, 4);
         match corridor_roll {
             1 => builder.with(DoglegCorridors::new()),
             2 => builder.with(NearestCorridors::new()),
@@ -197,12 +211,12 @@ fn random_room_builder(rng: &mut rltk::RandomNumberGenerator, builder: &mut Buil
             _ => builder.with(BspCorridors::new()),
         }
 
-        let cspawn_roll = rng.roll_dice(1, 2);
+        let cspawn_roll = crate::rng::roll_dice(1, 2);
         if cspawn_roll == 1 {
             builder.with(CorridorSpawner::new());
         }
 
-        let modifier_roll = rng.roll_dice(1, 6);
+        let modifier_roll = crate::rng::roll_dice(1, 6);
         match modifier_roll {
             1 => builder.with(RoomExploder::new()),
             2 => builder.with(RoomCornerRounder::new()),
@@ -210,30 +224,30 @@ fn random_room_builder(rng: &mut rltk::RandomNumberGenerator, builder: &mut Buil
         }
     }
 
-    let start_roll = rng.roll_dice(1, 2);
+    let start_roll = crate::rng::roll_dice(1, 2);
     match start_roll {
         1 => builder.with(RoomBasedStartingPosition::new()),
         _ => {
-            let (start_x, start_y) = random_start_position(rng);
+            let (start_x, start_y) = random_start_position();
             builder.with(AreaStartingPosition::new(start_x, start_y));
         }
     }
 
-    let exit_roll = rng.roll_dice(1, 2);
+    let exit_roll = crate::rng::roll_dice(1, 2);
     match exit_roll {
         1 => builder.with(RoomBasedStairs::new()),
         _ => builder.with(DistantExit::new()),
     }
 
-    let spawn_roll = rng.roll_dice(1, 2);
+    let spawn_roll = crate::rng::roll_dice(1, 2);
     match spawn_roll {
         1 => builder.with(RoomBasedSpawner::new()),
         _ => builder.with(VoronoiSpawning::new()),
     }
 }
 
-fn random_shape_builder(rng: &mut rltk::RandomNumberGenerator, builder: &mut BuilderChain) {
-    let builder_roll = rng.roll_dice(1, 16);
+fn random_shape_builder(builder: &mut BuilderChain) {
+    let builder_roll = crate::rng::roll_dice(1, 16);
     match builder_roll {
         1 => builder.start_with(CellularAutomataBuilder::new()),
         2 => builder.start_with(DrunkardsWalkBuilder::open_area()),
@@ -258,7 +272,7 @@ fn random_shape_builder(rng: &mut rltk::RandomNumberGenerator, builder: &mut Bui
     builder.with(CullUnreachable::new());
 
     // Now set the start to a random starting area
-    let (start_x, start_y) = random_start_position(rng);
+    let (start_x, start_y) = random_start_position();
     builder.with(AreaStartingPosition::new(start_x, start_y));
 
     // Setup an exit and spawn mobs
@@ -266,24 +280,19 @@ fn random_shape_builder(rng: &mut rltk::RandomNumberGenerator, builder: &mut Bui
     builder.with(DistantExit::new());
 }
 
-pub fn random_builder(
-    new_depth: i32,
-    rng: &mut rltk::RandomNumberGenerator,
-    width: i32,
-    height: i32,
-) -> BuilderChain {
-    let mut builder = BuilderChain::new(new_depth, width, height);
-    let type_roll = rng.roll_dice(1, 2);
+pub fn random_builder(new_depth: i32, width: i32, height: i32) -> BuilderChain {
+    let mut builder = BuilderChain::new(new_depth, width, height, "New Map");
+    let type_roll = crate::rng::roll_dice(1, 2);
     match type_roll {
-        1 => random_room_builder(rng, &mut builder),
-        _ => random_shape_builder(rng, &mut builder),
+        1 => random_room_builder(&mut builder),
+        _ => random_shape_builder(&mut builder),
     }
 
-    if rng.roll_dice(1, 3) == 1 {
+    if crate::rng::roll_dice(1, 3) == 1 {
         builder.with(WaveformCollapseBuilder::new());
 
         // Now set the start to a random starting area
-        let (start_x, start_y) = random_start_position(rng);
+        let (start_x, start_y) = random_start_position();
         builder.with(AreaStartingPosition::new(start_x, start_y));
 
         // Setup an exit and spawn mobs
@@ -291,7 +300,7 @@ pub fn random_builder(
         builder.with(DistantExit::new());
     }
 
-    if rng.roll_dice(1, 20) == 1 {
+    if crate::rng::roll_dice(1, 20) == 1 {
         builder.with(PrefabBuilder::sectional(
             prefab_builder::prefab_sections::UNDERGROUND_FORT,
         ));
@@ -303,15 +312,21 @@ pub fn random_builder(
     builder
 }
 
-pub fn level_builder(
-    new_depth: i32,
-    rng: &mut rltk::RandomNumberGenerator,
-    width: i32,
-    height: i32,
-) -> BuilderChain {
+pub fn level_builder(new_depth: i32, width: i32, height: i32) -> BuilderChain {
     rltk::console::log(format!("Depth: {}", new_depth));
     match new_depth {
-        1 => town_builder(new_depth, rng, width, height),
-        _ => random_builder(new_depth, rng, width, height),
+        1 => town_builder(new_depth, width, height),
+        2 => forest_builder(new_depth, width, height),
+        3 => limestone_cavern_builder(new_depth, width, height),
+        4 => limestone_deep_cavern_builder(new_depth, width, height),
+        5 => limestone_transition_builder(new_depth, width, height),
+        6 => dwarf_fort_builder(new_depth, width, height),
+        7 => mushroom_entrance(new_depth, width, height),
+        8 => mushroom_builder(new_depth, width, height),
+        9 => mushroom_exit(new_depth, width, height),
+        10 => dark_elf_city(new_depth, width, height),
+        11 => dark_elf_plaza(new_depth, width, height),
+        12 => abyss(new_depth, width, height),
+        _ => random_builder(new_depth, width, height),
     }
 }

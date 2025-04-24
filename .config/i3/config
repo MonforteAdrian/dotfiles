@@ -30,6 +30,9 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Style of the windows border between normal(with title), pixel x(no title and border x), none(no title no border)
+# default_border pixel 1
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -55,7 +58,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left
@@ -164,8 +167,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         position top
-        status_command i3status
+        status_command i3status-rs
 }
 
-exec xrandr --output eDP-1-1 --mode 1920x1080 --output HDMI-0 --auto --right-of eDP-1-1
+exec xrandr --output eDP-1-1 --mode 1920x1080 --output HDMI-0 --auto --right-of eDP-1-1 --output DVI-I-2-1 --auto --right-of HDMI-0
 exec --no-startup-id find ~/wallpapers/ -type f | shuf -n 1 | xargs xwallpaper --stretch

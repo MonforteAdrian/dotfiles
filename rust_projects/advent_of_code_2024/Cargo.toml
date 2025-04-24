@@ -1,0 +1,11 @@
+[package]
+name = "advent_of_code_2024"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+regex = "1.11.1"
+itertools = "0.13.0"
+rayon = "1.10"
+rustc-hash = "2.1"
+z3 = "0.12"

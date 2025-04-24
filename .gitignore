@@ -72,3 +72,11 @@ extension.vsixmanifest
 .Xauthority
 .xsession-errors
 .xsession-errors.old
+.config/CurseForge
+.config/EpubReader
+.config/github-copilot
+.debug
+.java/fonts/21.0.3
+.minecraft
+.mozilla/firefox
+Documents/curseforge/minecraft

@@ -16,12 +16,11 @@ const CONSONANTS_CODA: [&str; 6] = ["p", "b", "t", "d", "k", "g"];
 fn consonants_clusters() {
     let combinations: Vec<_> = CONSONANTS_ONSET
         .iter()
-        .map(|&c| {
+        .flat_map(|&c| {
             CONSONANTS_PAIRS_ONSET
                 .iter()
                 .map(move |&d| c.to_owned() + d)
         })
-        .flatten()
         .collect();
     println!("Combinations");
     for elem in combinations {
@@ -31,4 +30,14 @@ fn consonants_clusters() {
 
 fn main() {
     consonants_clusters();
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn no_error() {
+        consonants_clusters();
+    }
 }
