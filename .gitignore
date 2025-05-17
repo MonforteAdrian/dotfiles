@@ -46,6 +46,9 @@ facturasSyl
 msi-fan-fix
 rust_projects/little_projects/rustrogueliketutorial
 rust_projects/rust_the_complete_guide
+rust_projects/discovery
+rust_projects/embassy
+rust_projects/rustlings
 
 #Files
 .bash_history
