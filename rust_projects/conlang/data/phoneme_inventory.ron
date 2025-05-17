@@ -1,0 +1,15 @@
+(
+    consonants: [
+        (symbol: 'p', voiced: false, place: "Bilabial", manner: "Plosive"),
+        (symbol: 'b', voiced: true, place: "Bilabial", manner: "Plosive"),
+        (symbol: 't', voiced: false, place: "Alveolar", manner: "Plosive"),
+        (symbol: 'd', voiced: true, place: "Alveolar", manner: "Plosive"),
+        (symbol: 'm', voiced: true, place: "Bilabial", manner: "Nasal"),
+        (symbol: 'n', voiced: true, place: "Alveolar", manner: "Nasal"),
+    ],
+    vowels: [
+        (symbol: 'i', rounded: false, height: "Close", backness: "Front"),
+        (symbol: 'u', rounded: true, height: "Close", backness: "Back"),
+        (symbol: 'a', rounded: false, height: "Open", backness: "Central"),
+    ],
+)

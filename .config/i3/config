@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrainsMono Nerd Font Mono 8
+font pango:JetBrainsMono Nerd Font Mono 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -31,7 +31,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Style of the windows border between normal(with title), pixel x(no title and border x), none(no title no border)
-# default_border pixel 1
+default_border pixel 1
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -49,7 +49,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+#tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -163,12 +163,61 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+# theme colors
+set $rosewater #f4dbd6
+set $flamingo #f0c6c6
+set $pink #f5bde6
+set $mauve #c6a0f6
+set $red #ed8796
+set $maroon #ee99a0
+set $peach #f5a97f
+set $yellow #eed49f
+set $green #a6da95
+set $teal #8bd5ca
+set $sky #91d7e3
+set $sapphire #7dc4e4
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $subtext1 #b8c0e0
+set $subtext0 #a5adcb
+set $overlay2 #939ab7
+set $overlay1 #8087a2
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $surface1 #494d64
+set $surface0 #363a4f
+set $base #24273a
+set $mantle #1e2030
+set $crust #181926
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    tray_output none
+    colors {
+        background         $base
+        statusline         $text
+        focused_statusline $text
+        focused_separator  $base
+
+        # target           border bg        text
+        focused_workspace  $base  $mauve    $crust
+        active_workspace   $base  $surface2 $text
+        inactive_workspace $base  $base     $text
+        urgent_workspace   $base  $red      $crust
+      }
         position top
         status_command i3status-rs
 }
 
-exec xrandr --output eDP-1-1 --mode 1920x1080 --output HDMI-0 --auto --right-of eDP-1-1 --output DVI-I-2-1 --auto --right-of HDMI-0
+exec xrandr --output eDP-1-1 --mode 1920x1080 --output HDMI-0 --primary --auto --right-of eDP-1-1 --output DVI-I-2-1 --auto --right-of HDMI-0
 exec --no-startup-id find ~/wallpapers/ -type f | shuf -n 1 | xargs xwallpaper --stretch

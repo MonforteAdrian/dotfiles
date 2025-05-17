@@ -1,4 +1,5 @@
 icons_format = "{icon}"
+
 [theme]
 theme = "ctp-macchiato"
 
@@ -45,7 +46,7 @@ cmd = "blueman-manager"
 
 [[block]]
 block = "net"
-format = " $icon $signal_strength"
+format = " $icon"
 
 [[block]]
 block = "disk_space"

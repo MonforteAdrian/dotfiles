@@ -6,7 +6,7 @@ PS1='[\u@\h \W]\$ '
 
 ### EXPORT
 export TERM="xterm-256color"                      # getting proper colors
-export TERMINAL="alacritty"                       # main terminal
+export TERMINAL="wezterm"                         # main terminal
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 export EDITOR="nvim"                              # $EDITOR use neovim in terminal
 export VISUAL="nvim"                              # $VISUAL use neovim in GUI mode

@@ -15,15 +15,14 @@ version: 0.0.12
   -- [ ] Check google keep notes
   -- [ ] Check overleaf
   - [-] Art
-  -- [x] templates for the Game
-  -- [ ] pixel art for the Game
   -- [-] Universe map
   -- [-] *Planet map*
   - [-] Game
 
 * Notes
   The name can be honey(in the conlang or mel like in latin) + earth(the name of the god that created the planet)
-** WorldSmith
+** World Smith
+   - Spreadsheet with all the data regarding the star system ( including star, planets, satellite )
   - {https://drive.google.com/drive/u/0/my-drive}
 ** Cosmology
    - {:cosmology/universe:}[Universe]
@@ -41,9 +40,9 @@ version: 0.0.12
    - {:culture/military:}[Military]
    - {:culture/traditions:}[Traditions]
    - {:culture/entertainment:}[Entertainment]
-   - {:culture/philosophy:}[Phylosophy]
+   - {:culture/philosophy:}[Philosophy]
    - {:culture/medicine:}[Medicine]
-   - {:culture/profesions:}[Profesions]
+   - {:culture/profesions:}[Professions]
    - {:culture/economy:}[Economy]
    - {:culture/education:}[Education]
 ** Mythology

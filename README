@@ -1,8 +1,9 @@
 ==== PROGRAMS ====
-dwm               --window manager
-dmenu             --launcher
-st                --terminal
-picom             --makes dwm work
+i3                --window manager
+i3-status-rust    --status bar
+rofi              --launcher
+wezterm           --terminal
+picom             --makes wm work
 
 nvidia            --drivers graphics
 pulseaudio        --drivers audio
@@ -13,7 +14,7 @@ google chrome     --browser
 discord           --comunication
 
 nvim              --text editor
-ranger            --filemanager
+yazi              --filemanager
 fish              --shell
 starship          --prompt
 git               --version control

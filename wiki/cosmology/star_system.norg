@@ -3,28 +3,26 @@
 
 ** Stars
 *** A
-    - Star F3.5V (1.3 * sun mass)
+    - Star F5V (1.24 * sun mass)
 *** B
-    - Star G8.1 (0.88 * sun mass)
+    - Star G8.1 (0.84 * sun mass)
 *** C
-    - Star M0.1 (0.47 * sun mass)
+    - Star K9.8 (0.48 * sun mass)
 
 * Planetary System
 ** Planets
 *** A(Rocky)
     - 0.6 AU
 *** B(Rocky)
-    - 0.8 AU
-*** C(Rocky)
     - 1.2 AU
 *** Main(Rocky)
-    - 2.0 AU
-*** E(Rocky)
+    - 1.907296 AU
+*** D(Rocky)
     - 3.6 AU
 *** Asteroid belt
     - 6.8 AU
-*** F(Major Gas Giant)
+*** E(Major Gas Giant)
     - 13.2 AU
-*** G(Ice Giant)
+*** F(Ice Giant)
     - 26.0 AU
 
